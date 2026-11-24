@@ -63,12 +63,6 @@ struct ComputeResult {
     double peakMag = 0.0;
     SignalType signalType = SignalType::TimeDomain;
 
-    // 后台分步耗时（毫秒）：仅用于界面播报，不参与任何计算语义。
-    double readMs = 0.0;        // 读文件 + 解析（内置信号时为正弦生成）
-    double computeMs = 0.0;     // 曲线构造 / 频谱计算（含谱峰搜索）
-    double downsampleMs = 0.0;  // 显示降采样
-    double workerTotalMs = 0.0; // 工作线程内总耗时（读 + 算 + 降采样）
-
     bool builtin = false;             // 是否来自内置正弦（自验）
     QString label;                    // 图例名（随请求透传）
 };

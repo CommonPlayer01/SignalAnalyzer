@@ -5,9 +5,9 @@
 #   src/     —— 源文件
 #   本目录   —— CMakeLists.txt 与 .ui / .qrc 资源
 
-# ---- 生成 ui_SignalAnalyzer.h（由 .ui 文件）----
+# ---- 生成 ui_MainWindow.h（由 .ui 文件）----
 # .ui 引用了自定义控件 QCustomPlot，需要在 uic 阶段能找到 qcustomplot.h
-set(UI_FILE ${CMAKE_CURRENT_SOURCE_DIR}/SignalAnalyzer.ui)
+set(UI_FILE ${CMAKE_CURRENT_SOURCE_DIR}/MainWindow.ui)
 
 # Qt5 用 qt5_wrap_ui，Qt6 用 qt6_wrap_ui（需额外指定 include 路径以解析自定义控件）
 if(${QT_PKG} STREQUAL "Qt6")
@@ -31,8 +31,8 @@ endif()
 # ---- 源文件 ----
 set(ANALYZER_SOURCES
     main.cpp
-    src/SignalAnalyzer.cpp
-    include/SignalAnalyzer.h
+    src/MainWindow.cpp
+    include/MainWindow.h
     include/SignalTypes.h
     src/ComputeTask.cpp
     include/ComputeTask.h

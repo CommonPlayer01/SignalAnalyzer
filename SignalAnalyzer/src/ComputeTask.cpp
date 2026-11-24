@@ -1,7 +1,6 @@
 #include "ComputeTask.h"
 
 #include <QByteArray>
-#include <QElapsedTimer>
 #include <QString>
 
 #include <QVector>
@@ -86,12 +85,6 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
     if (isStale(generation))
         return;
 
-    // 性能计时：total 统计整个工作线程耗时，step 统计各阶段（结果随信号回 UI 播报）。
-    QElapsedTimer total;
-    QElapsedTimer step;
-    total.start();
-    step.start();
-
     ComputeResult result;
     result.generation = generation;
     result.signalType = request.signalType;
@@ -104,8 +97,6 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
         // 内置正弦：不读文件，直接生成 N 点 sin(2π f i / fs)。
         if (request.builtinFs <= 0.0 || request.builtinN == 0) {
             result.error = QStringLiteral("内置信号参数非法（fs 或 N 无效）");
-            result.readMs = step.nsecsElapsed() * 1e-6;
-            result.workerTotalMs = total.nsecsElapsed() * 1e-6;
             emit computeFinished(generation, result);
             return;
         }
@@ -121,8 +112,6 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
             SignalCoreLib::SignalReader::readFile(localPath.constData());
         if (!read.ok) {
             result.error = QString::fromStdString(read.error);
-            result.readMs = step.nsecsElapsed() * 1e-6;
-            result.workerTotalMs = total.nsecsElapsed() * 1e-6;
             emit computeFinished(generation, result);
             return;
         }
@@ -131,8 +120,6 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
     }
     if (isStale(generation))
         return;
-
-    result.readMs = step.nsecsElapsed() * 1e-6;
 
     result.ok = true;
     result.fs = data.sampleRate();
@@ -145,8 +132,6 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
     // 先在本线程构造完整曲线数据（xs/ys），再统一发布为只读共享指针。
     std::vector<double> xs;
     std::vector<double> ys;
-
-    step.restart();
 
     if (request.signalType == SignalType::TimeDomain) {
         // 时域：横轴为时间（秒）。
@@ -186,7 +171,6 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
     }
 
     result.rms = SignalCoreLib::RmsCalculator::compute(data.samples());
-    result.computeMs = step.nsecsElapsed() * 1e-6;
 
     if (isStale(generation))
         return; // 兜底：算完的旧结果也不上屏。
@@ -196,10 +180,7 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
     result.y = std::make_shared<std::vector<double>>(std::move(ys));
 
     // 显示数据在工作线程内完成降采样，UI 线程只做 setData/replot。
-    step.restart();
     downsampleForDisplay(*result.x, *result.y, result.displayX, result.displayY);
-    result.downsampleMs = step.nsecsElapsed() * 1e-6;
-    result.workerTotalMs = total.nsecsElapsed() * 1e-6;
 
     emit computeFinished(generation, result);
 }

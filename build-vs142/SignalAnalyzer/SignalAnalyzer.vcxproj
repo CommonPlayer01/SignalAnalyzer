@@ -387,10 +387,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\SignalAnalyzer.ui">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_SignalAnalyzer.h</Message>
+    <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\MainWindow.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_MainWindow.h</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_SignalAnalyzer.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/SignalAnalyzer.ui
+D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_MainWindow.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/MainWindow.ui
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -399,11 +399,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_SignalAnalyzer.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_MainWindow.h</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_SignalAnalyzer.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_MainWindow.h</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_SignalAnalyzer.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/SignalAnalyzer.ui
+D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_MainWindow.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/MainWindow.ui
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -412,11 +412,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_SignalAnalyzer.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_MainWindow.h</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_SignalAnalyzer.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Generating ui_MainWindow.h</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_SignalAnalyzer.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/SignalAnalyzer.ui
+D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_MainWindow.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/MainWindow.ui
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -425,11 +425,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_SignalAnalyzer.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_MainWindow.h</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_SignalAnalyzer.h</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Generating ui_MainWindow.h</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_SignalAnalyzer.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/SignalAnalyzer.ui
+D:\Software\Qt\5.15.2\msvc2019_64\bin\uic.exe -o C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_MainWindow.h C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/MainWindow.ui
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -438,7 +438,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_SignalAnalyzer.h</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_MainWindow.h</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
@@ -562,8 +562,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\main.cpp" />
-    <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\src\SignalAnalyzer.cpp" />
-    <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\include\SignalAnalyzer.h" />
+    <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\src\MainWindow.cpp" />
+    <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\include\MainWindow.h" />
     <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\include\SignalTypes.h" />
     <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\src\ComputeTask.cpp" />
     <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\include\ComputeTask.h" />
@@ -575,7 +575,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\include\PlotController.h" />
     <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\src\SelfTestDialog.cpp" />
     <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\SignalAnalyzer\include\SelfTestDialog.h" />
-    <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_SignalAnalyzer.h" />
+    <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\ui_MainWindow.h" />
     <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qrc_SignalAnalyzer.cpp" />
     <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\SignalAnalyzer_autogen\mocs_compilation_Release.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

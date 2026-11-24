@@ -234,7 +234,6 @@ flowchart TB
 | 全量曲线 | `x` / `y` | `shared_ptr<const vector<double>>`，**跨线程零拷贝**（Queued 只复制指针）；时域 x=秒、y=样本；频谱 x=Hz、y=幅值/功率 |
 | 显示曲线 | `displayX` / `displayY` | 工作线程内**预降采样**（[ComputeTask.cpp](file:///c:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/ComputeTask.cpp#L23-L31)），UI 线程直接 `setData`，不在 UI 重采样 |
 | 统计量 | `fs` `pointCount` `fftSize` `rms` `peakFreq` `peakMag` | 标量值随结果拷贝，供状态栏 / 自验表格 |
-| 耗时 | `readMs` `computeMs` `downsampleMs` `workerTotalMs` | 仅供界面播报，不参与计算语义 |
 | 属性 | `ok` `error` `skippedLines` `builtin` `label` `generation` | 语义开关 / 图例 / 代际号兜底 |
 
 ### 3.4 数据所有权与生命周期

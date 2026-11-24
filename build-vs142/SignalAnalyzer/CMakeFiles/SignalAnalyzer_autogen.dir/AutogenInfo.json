@@ -23,6 +23,12 @@
 			null
 		],
 		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/MainWindow.h",
+			"Mu",
+			"6YEA5652QU/moc_MainWindow.cpp",
+			null
+		],
+		[
 			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/PlotController.h",
 			"Mu",
 			"6YEA5652QU/moc_PlotController.cpp",
@@ -38,12 +44,6 @@
 			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/SelfTestDialog.h",
 			"Mu",
 			"6YEA5652QU/moc_SelfTestDialog.cpp",
-			null
-		],
-		[
-			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/SignalAnalyzer.h",
-			"Mu",
-			"6YEA5652QU/moc_SignalAnalyzer.cpp",
 			null
 		],
 		[
@@ -187,7 +187,7 @@
 	"MOC_SKIP" : 
 	[
 		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qrc_SignalAnalyzer.cpp",
-		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_SignalAnalyzer.h"
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_MainWindow.h"
 	],
 	"MULTI_CONFIG" : true,
 	"PARALLEL" : 6,
@@ -218,6 +218,11 @@
 			null
 		],
 		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/MainWindow.cpp",
+			"Mu",
+			null
+		],
+		[
 			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/PlotController.cpp",
 			"Mu",
 			null
@@ -229,11 +234,6 @@
 		],
 		[
 			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/SelfTestDialog.cpp",
-			"Mu",
-			null
-		],
-		[
-			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/SignalAnalyzer.cpp",
 			"Mu",
 			null
 		],

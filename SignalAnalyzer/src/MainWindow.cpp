@@ -1,5 +1,5 @@
 /**
- * @file    SignalAnalyzer.cpp
+ * @file    MainWindow.cpp
  * @brief   主窗口（MainWindow）实现：界面交互层的「薄客户端」。
  *
  * 设计要点：
@@ -10,11 +10,11 @@
  *  - 由此保证 UI 线程不阻塞，同时计算与界面逻辑解耦。
  *
  * 数据流（单向）：
- *  用户操作 -> SignalAnalyzer（本文件） -> SignalWorker（后台线程）
- *           -> SignalCore（算法） -> SignalWorker -> SignalAnalyzer -> PlotController
+ *  用户操作 -> MainWindow（本文件） -> SignalWorker（后台线程）
+ *           -> SignalCore（算法） -> SignalWorker -> MainWindow -> PlotController
  */
 
-#include "SignalAnalyzer.h"
+#include "MainWindow.h"
 
 // QDir / QFileDialog / QFileInfo(List)：文件夹枚举、目录选择框、文件元信息查询。
 #include <QDir>
@@ -70,7 +70,7 @@ QString fileKey(const QFileInfo &fi)
  *  3) 填充下拉框，并连接「用户交互 -> 槽函数」与「worker 结果 -> 槽函数」；
  *  4) 配置绘图区基础样式与交互能力。
  */
-SignalAnalyzer::SignalAnalyzer(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
@@ -91,34 +91,34 @@ SignalAnalyzer::SignalAnalyzer(QWidget *parent)
     // ---- 用户交互 -> 本类槽函数 ----
     // 点击「导入文件夹」按钮。
     connect(ui.btnImportFolder, &QPushButton::clicked,
-            this, &SignalAnalyzer::onImportFolder);
+            this, &MainWindow::onImportFolder);
     // 切换文件：QOverload 用于在重载信号中明确选择 int 版本。
     connect(ui.comboFile, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &SignalAnalyzer::onFileChanged);
+            this, &MainWindow::onFileChanged);
     // 切换信号类型（时域 / 幅值谱 / 自功率谱）。
     connect(ui.comboSignal, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &SignalAnalyzer::onSignalChanged);
+            this, &MainWindow::onSignalChanged);
     // 切换窗函数（矩形窗 / 汉宁窗）。
     connect(ui.comboWindow, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &SignalAnalyzer::onWindowChanged);
+            this, &MainWindow::onWindowChanged);
     // 叠加对比控制：清空曲线、打开自验对话框。
     connect(ui.btnClearCurves, &QPushButton::clicked,
-            this, &SignalAnalyzer::onClearCurves);
+            this, &MainWindow::onClearCurves);
     connect(ui.btnSelfTest, &QPushButton::clicked,
-            this, &SignalAnalyzer::onOpenSelfTest);
+            this, &MainWindow::onOpenSelfTest);
     // 叠加勾选状态切换：取消勾选时清除叠加曲线，仅保留最近一条结果。
     connect(ui.chkOverlay, &QCheckBox::toggled,
-            this, &SignalAnalyzer::onOverlayToggled);
+            this, &MainWindow::onOverlayToggled);
     // 显示点数参数变化：立即按新窗口重绘（不重新计算）。
     connect(ui.spinPointLimit, QOverload<int>::of(&QSpinBox::valueChanged),
-            this, &SignalAnalyzer::onPointLimitChanged);
+            this, &MainWindow::onPointLimitChanged);
 
     // ---- 后台计算结果 -> 本类槽函数 ----
     // 注意：worker 已按「代际号」过滤过期结果，本类收到的总是最新一次请求的结果。
     connect(m_worker.get(), &SignalWorker::computeFinished,
-            this, &SignalAnalyzer::onComputeFinished);
+            this, &MainWindow::onComputeFinished);
     connect(m_worker.get(), &SignalWorker::scanFinished,
-            this, &SignalAnalyzer::onScanFinished);
+            this, &MainWindow::onScanFinished);
 
     // 初始化绘图区（基础交互：缩放 / 拖拽）。
     // 允许鼠标拖拽平移、滚轮缩放坐标轴范围。
@@ -145,7 +145,7 @@ SignalAnalyzer::SignalAnalyzer(QWidget *parent)
  * 函数体为空是刻意为之——所有资源均由 RAII（unique_ptr）管理，
  * SignalWorker 的析构会负责停止后台线程。
  */
-SignalAnalyzer::~SignalAnalyzer()
+MainWindow::~MainWindow()
 {}
 
 /**
@@ -158,7 +158,7 @@ SignalAnalyzer::~SignalAnalyzer()
  *  - comboWindow 的 userData 保存传给算法层的窗函数名 "rect" / "hann"，
  *    显示文本可自由本地化，不影响计算。
  */
-void SignalAnalyzer::setupCombos()
+void MainWindow::setupCombos()
 {
     // 窗函数下拉框：矩形窗（等效不加窗）与汉宁窗（任务书 3.(5)）。
     ui.comboWindow->addItem(tr("矩形窗（等效不加窗）"), QStringLiteral("rect"));
@@ -176,7 +176,7 @@ void SignalAnalyzer::setupCombos()
  *
  * 依赖 setupCombos() 中「下拉框顺序 == 枚举顺序」的约定，二者不可单独修改。
  */
-SignalType SignalAnalyzer::currentSignalType() const
+SignalType MainWindow::currentSignalType() const
 {
     return static_cast<SignalType>(ui.comboSignal->currentIndex());
 }
@@ -185,7 +185,7 @@ SignalType SignalAnalyzer::currentSignalType() const
  * @brief 取当前选中窗函数的算法标识（userData，而非显示文本）。
  * @return "rect" 或 "hann"；若下拉框为空则返回空字符串。
  */
-QString SignalAnalyzer::currentWindowName() const
+QString MainWindow::currentWindowName() const
 {
     return ui.comboWindow->currentData().toString();
 }
@@ -213,7 +213,7 @@ QString SignalAnalyzer::currentWindowName() const
  *
  * 注意：本函数不解析文件内容，因此不会阻塞 UI。
  */
-void SignalAnalyzer::onImportFolder()
+void MainWindow::onImportFolder()
 {
     // getExistingDirectory：模态目录选择框；第三个参数为初始目录。
     const QString dir = QFileDialog::getExistingDirectory(
@@ -317,7 +317,7 @@ void SignalAnalyzer::onImportFolder()
  *  - 若本次有新增文件，会自动选中第一个新文件（触发 onFileChanged -> requestCompute），
  *    让用户导入后立即看到曲线。
  */
-void SignalAnalyzer::onScanFinished(const ScanResult &result)
+void MainWindow::onScanFinished(const ScanResult &result)
 {
     // 记录本次新增文件在 comboFile 中的起始下标。
     // 必须在 addItem 之前取 count()，此时 count() 恰好等于下一个可用下标。
@@ -370,7 +370,7 @@ void SignalAnalyzer::onScanFinished(const ScanResult &result)
  * 越界或负数（例如清空下拉框）时，视为「无选中文件」：清空路径并清空绘图区，
  * 防止旧曲线残留在界面上。
  */
-void SignalAnalyzer::onFileChanged(int index)
+void MainWindow::onFileChanged(int index)
 {
     if (index < 0 || index >= m_importedPaths.size()) {
         m_currentPath.clear();
@@ -389,7 +389,7 @@ void SignalAnalyzer::onFileChanged(int index)
  *
  * 仅在已选中文件时重算；没有文件时不做任何事，避免无意义的空请求。
  */
-void SignalAnalyzer::onSignalChanged(int index)
+void MainWindow::onSignalChanged(int index)
 {
     Q_UNUSED(index);
 
@@ -410,7 +410,7 @@ void SignalAnalyzer::onSignalChanged(int index)
  * @brief 窗函数切换回调：窗函数仅影响频谱类计算，同样重新计算当前文件。
  * @param index 新的下标（未直接使用），实际窗名由 currentWindowName() 读取。
  */
-void SignalAnalyzer::onWindowChanged(int index)
+void MainWindow::onWindowChanged(int index)
 {
     Q_UNUSED(index);
     if (!m_currentPath.isEmpty())
@@ -426,7 +426,7 @@ void SignalAnalyzer::onWindowChanged(int index)
  *
  * 若当前没有选中文件则直接返回，不产生后台任务。
  */
-void SignalAnalyzer::requestCompute()
+void MainWindow::requestCompute()
 {
     if (m_currentPath.isEmpty())
         return;
@@ -462,7 +462,7 @@ void SignalAnalyzer::requestCompute()
  *    频谱类结果再追加谱峰频率/幅值与窗函数名；
  *    若存在坏行则最后追加坏行数。
  */
-void SignalAnalyzer::onComputeFinished(const ComputeResult &result)
+void MainWindow::onComputeFinished(const ComputeResult &result)
 {
     // ---- 自验结果：回填弹窗对照表，按需叠加到主图，不走文件结果的常规叠加逻辑。----
     if (result.builtin) {
@@ -532,7 +532,7 @@ void SignalAnalyzer::onComputeFinished(const ComputeResult &result)
 }
 
 // 清空所有叠加曲线。
-void SignalAnalyzer::onClearCurves()
+void MainWindow::onClearCurves()
 {
     m_plotController->clear();
     m_hasLastResult = false;   // 清空后无可恢复曲线
@@ -541,7 +541,7 @@ void SignalAnalyzer::onClearCurves()
 }
 
 // 叠加勾选状态变化：取消勾选时清除叠加曲线，只保留最近一条结果。
-void SignalAnalyzer::onOverlayToggled(bool checked)
+void MainWindow::onOverlayToggled(bool checked)
 {
     if (checked)
         return; // 勾选时无需立即动作；后续切换配置才追加曲线。
@@ -555,15 +555,15 @@ void SignalAnalyzer::onOverlayToggled(bool checked)
 }
 
 // 打开（或前置）自验对话框：懒创建并连接其请求信号。
-void SignalAnalyzer::onOpenSelfTest()
+void MainWindow::onOpenSelfTest()
 {
     if (!m_selfTestDialog) {
         m_selfTestDialog = new SelfTestDialog(this);
         connect(m_selfTestDialog, &SelfTestDialog::selfTestRequested,
-                this, &SignalAnalyzer::onSelfTestRequested);
+                this, &MainWindow::onSelfTestRequested);
         // 取消「叠加到主图」：把已叠加的自验曲线从主图移除（文件结果保持不动）。
         connect(m_selfTestDialog, &SelfTestDialog::overlayCancelled,
-                this, &SignalAnalyzer::onSelfTestOverlayCancelled);
+                this, &MainWindow::onSelfTestOverlayCancelled);
     }
     m_selfTestDialog->show();
     m_selfTestDialog->raise();
@@ -571,7 +571,7 @@ void SignalAnalyzer::onOpenSelfTest()
 }
 
 // 自验请求：内置生成正弦（不读文件），走与文件相同的后台计算与谱峰检测。
-void SignalAnalyzer::onSelfTestRequested(double freq, double amp, double fs, int n, bool overlayToPlot)
+void MainWindow::onSelfTestRequested(double freq, double amp, double fs, int n, bool overlayToPlot)
 {
     m_pendingSelfTestOverlay = overlayToPlot;
 
@@ -590,7 +590,7 @@ void SignalAnalyzer::onSelfTestRequested(double freq, double amp, double fs, int
 }
 
 // 显示点数参数变化：按新值收缩/恢复 x 轴窗口，不重新计算数据。
-void SignalAnalyzer::onPointLimitChanged(int n)
+void MainWindow::onPointLimitChanged(int n)
 {
     m_plotController->setPointLimit(n);
 
@@ -601,7 +601,7 @@ void SignalAnalyzer::onPointLimitChanged(int n)
 }
 
 // 取消「叠加到主图」：按图例名移除此前叠加的自验曲线，文件结果曲线保持不动。
-void SignalAnalyzer::onSelfTestOverlayCancelled()
+void MainWindow::onSelfTestOverlayCancelled()
 {
     if (m_selfTestOverlayLabels.isEmpty())
         return;

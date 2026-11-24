@@ -7,7 +7,7 @@
 
 #include <memory>
 
-#include "ui_SignalAnalyzer.h"
+#include "ui_MainWindow.h"
 
 #include "SignalTypes.h"
 
@@ -17,13 +17,13 @@ class SignalWorker;
 
 // MainWindow（界面薄客户端）：仅负责交互与显示，
 // 全部计算通过 SignalWorker（App 内调用 SignalCore 的唯一入口）发起。
-class SignalAnalyzer : public QMainWindow
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    SignalAnalyzer(QWidget *parent = nullptr);
-    ~SignalAnalyzer();
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
 private slots:
     void onImportFolder();
@@ -45,7 +45,7 @@ private:
     SignalType currentSignalType() const;
     QString currentWindowName() const;
 
-    Ui::SignalAnalyzerClass ui;
+    Ui::MainWindow ui;
     std::unique_ptr<SignalWorker> m_worker;
     std::unique_ptr<PlotController> m_plotController;
 

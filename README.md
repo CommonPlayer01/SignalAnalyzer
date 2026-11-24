@@ -17,9 +17,9 @@ SignalAnalyzer-cmake/
 ├── SignalAnalyzer/                       # 主程序（界面薄客户端）
 │   ├── CMakeLists.txt
 │   ├── main.cpp                          # 程序入口（与 CMakeLists.txt 同级）
-│   ├── SignalAnalyzer.ui / .qrc
-│   ├── include/                          # .h：SignalAnalyzer / SignalWorker / ComputeTask / ScanTask / PlotController / SignalTypes
-│   └── src/                              # .cpp：SignalAnalyzer / SignalWorker / ComputeTask / ScanTask / PlotController
+│   ├── MainWindow.ui / SignalAnalyzer.qrc
+│   ├── include/                          # .h：MainWindow / SignalWorker / ComputeTask / ScanTask / PlotController / SignalTypes
+│   └── src/                              # .cpp：MainWindow / SignalWorker / ComputeTask / ScanTask / PlotController
 └── third_party/qcustomplot/              # QCustomPlot 2.1.1
 ```
 

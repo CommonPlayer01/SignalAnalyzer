@@ -395,6 +395,12 @@ void MainWindow::onSignalChanged(int index)
 {
     Q_UNUSED(index);
 
+    // 切换类型即切换结果语义：立即清空旧画布，避免等待后台重算期间残留旧类型曲线。
+    // 同时丢弃可恢复的最后结果，防止重算完成前的空档被 setResult(m_lastResult) 恢复旧图。
+    m_plotController->clear();
+    m_hasLastResult = false;
+    m_selfTestOverlayLabels.clear();
+
     // 时域不支持叠加对比：禁用勾选框；若正勾选则强制取消（会触发清空叠加曲线）。
     const bool spectral = (currentSignalType() != SignalType::TimeDomain);
     ui.chkOverlay->setEnabled(spectral);

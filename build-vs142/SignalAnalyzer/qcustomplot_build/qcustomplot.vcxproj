@@ -116,6 +116,23 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC for target qcustomplot</Message>
+      <Command>setlocal
+cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
@@ -161,6 +178,23 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC for target qcustomplot</Message>
+      <Command>setlocal
+cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
@@ -206,6 +240,23 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC for target qcustomplot</Message>
+      <Command>setlocal
+cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
@@ -250,113 +301,33 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC for target qcustomplot</Message>
+      <Command>setlocal
+cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\4005305e5eeca07ddb471a5ee64af822\timestamp.rule">
-      <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Automatic MOC for target qcustomplot</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
-if %errorlevel% neq 0 goto :cmEnd
-C:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json Debug
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/timestamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_transform_depfile "Visual Studio 18 2026" MSBuildAdditionalInputs C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/deps C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/CMakeFiles/d/0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Software\Qt\5.15.2\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\timestamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <DepFileAdditionalInputsFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\d\0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs</DepFileAdditionalInputsFile>
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Automatic MOC for target qcustomplot</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
-if %errorlevel% neq 0 goto :cmEnd
-C:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json Release
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/timestamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_transform_depfile "Visual Studio 18 2026" MSBuildAdditionalInputs C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/deps C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/CMakeFiles/d/0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Software\Qt\5.15.2\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\timestamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <DepFileAdditionalInputsFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\d\0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs</DepFileAdditionalInputsFile>
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</BuildInParallel>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Automatic MOC for target qcustomplot</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
-if %errorlevel% neq 0 goto :cmEnd
-C:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json MinSizeRel
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/timestamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_transform_depfile "Visual Studio 18 2026" MSBuildAdditionalInputs C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/deps C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/CMakeFiles/d/0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Software\Qt\5.15.2\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\timestamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <DepFileAdditionalInputsFile Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\d\0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs</DepFileAdditionalInputsFile>
-      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Automatic MOC for target qcustomplot</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build
-if %errorlevel% neq 0 goto :cmEnd
-C:
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/qcustomplot_autogen.dir/AutogenInfo.json RelWithDebInfo
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/timestamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E cmake_transform_depfile "Visual Studio 18 2026" MSBuildAdditionalInputs C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/deps C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/CMakeFiles/d/0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Software\Qt\5.15.2\msvc2019_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\timestamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-      <DepFileAdditionalInputsFile Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\d\0839e63da163b640910ab2012b27aa3ef0cd343376a3f6c5a1a212bb58cd580a.AdditionalInputs</DepFileAdditionalInputsFile>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
     <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\third_party\qcustomplot\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -369,7 +340,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -382,7 +353,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -395,7 +366,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake -BC:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142 --check-stamp-file C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -416,8 +387,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ClCompile>
     <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\third_party\qcustomplot\qcustomplot.cpp" />
     <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\third_party\qcustomplot\qcustomplot.h" />
-    <None Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\timestamp">
-    </None>
     <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\mocs_compilation_Release.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</ExcludedFromBuild>
@@ -446,5 +415,4 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  <Import Project="C:\Program Files\CMake\share\cmake-4.5\Templates\MSBuild\CustomBuildDepFile.targets" />
 </Project>

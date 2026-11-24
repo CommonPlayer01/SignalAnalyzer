@@ -2,14 +2,14 @@
 # If you choose not to use CMake, this file may be hand configured, by
 # filling in the required variables.
 
-cmake_minimum_required(VERSION 4.5.0)
+cmake_minimum_required(VERSION 4.3.1-msvc1)
 
 # CTest Start Step
 set(CTEST_SOURCE_DIRECTORY "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake")
 set(CTEST_BINARY_DIRECTORY "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142")
 
 # CTest Update Step
-set(CTEST_UPDATE_COMMAND "")
+set(CTEST_UPDATE_COMMAND "GITCOMMAND-NOTFOUND")
 set(CTEST_UPDATE_OPTIONS "")
 set(CTEST_UPDATE_VERSION_ONLY "")
 set(CTEST_NIGHTLY_START_TIME "00:00:00 EDT")
@@ -24,7 +24,7 @@ set(CTEST_SVN_OPTIONS "")
 set(CTEST_SVN_UPDATE_OPTIONS "")
 
 # Git options
-set(CTEST_GIT_COMMAND "")
+set(CTEST_GIT_COMMAND "GITCOMMAND-NOTFOUND")
 set(CTEST_GIT_INIT_SUBMODULES "")
 set(CTEST_GIT_UPDATE_CUSTOM "")
 set(CTEST_GIT_UPDATE_OPTIONS "")
@@ -48,7 +48,6 @@ set(CTEST_USE_LAUNCHERS "0")
 set(CTEST_RESOURCE_SPEC_FILE "")
 set(CTEST_TEST_LOAD "")
 set(CTEST_TEST_TIMEOUT "1500")
-set(CTEST_TEST_COVERAGE_TOOL "")
 
 # CTest Coverage Step
 set(CTEST_COVERAGE_COMMAND "COVERAGE_COMMAND-NOTFOUND")

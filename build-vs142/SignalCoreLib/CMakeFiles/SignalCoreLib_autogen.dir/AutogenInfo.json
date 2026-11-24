@@ -4,17 +4,16 @@
 	"CMAKE_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib",
 	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib",
-	"CMAKE_EXECUTABLE" : "C:/Program Files/CMake/bin/cmake.exe",
+	"CMAKE_EXECUTABLE" : "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
 		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/CMakeLists.txt",
-		"C:/Program Files/CMake/share/cmake-4.5/Modules/GNUInstallDirs.cmake"
+		"C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.3/Modules/GNUInstallDirs.cmake"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake",
 	"CROSS_CONFIG" : false,
-	"CXX_MODULE_UNITS" : [],
-	"DEP_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLib_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "SignalCoreLib_autogen/timestamp",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[

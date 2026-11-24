@@ -24,9 +24,18 @@ enum class SignalType {
 
 // 一次计算请求：由 UI 层（MainWindow）发起，投递给计算线程。
 struct ComputeRequest {
-    QString filePath;                 // 待解析的 txt 文件完整路径
+    QString filePath;                 // 待解析的 txt 文件完整路径（内置信号时可为空）
     SignalType signalType = SignalType::TimeDomain;
     QString windowName;               // "rect" / "hann"
+
+    // 内置正弦参数：useBuiltin=true 时按 f/A/fs/N 直接生成，不读文件。
+    bool useBuiltin = false;
+    double builtinFreq = 0.0;         // 频率 (Hz)
+    double builtinAmp = 0.0;          // 幅值
+    double builtinFs = 0.0;           // 采样率 (Hz)
+    std::size_t builtinN = 0;         // 点数
+
+    QString label;                    // 图例名（由 UI 生成并随请求透传）
 };
 
 // 一次计算结果：由 ComputeTask 计算线程产出，回传 UI 线程绘图。
@@ -53,6 +62,15 @@ struct ComputeResult {
     double peakFreq = 0.0;
     double peakMag = 0.0;
     SignalType signalType = SignalType::TimeDomain;
+
+    // 后台分步耗时（毫秒）：仅用于界面播报，不参与任何计算语义。
+    double readMs = 0.0;        // 读文件 + 解析（内置信号时为正弦生成）
+    double computeMs = 0.0;     // 曲线构造 / 频谱计算（含谱峰搜索）
+    double downsampleMs = 0.0;  // 显示降采样
+    double workerTotalMs = 0.0; // 工作线程内总耗时（读 + 算 + 降采样）
+
+    bool builtin = false;             // 是否来自内置正弦（自验）
+    QString label;                    // 图例名（随请求透传）
 };
 
 // 批量导入扫描结果（轻量校验：不含坏行统计，坏行留到实际解析时判定）。

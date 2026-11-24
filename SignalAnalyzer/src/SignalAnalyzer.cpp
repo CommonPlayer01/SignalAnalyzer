@@ -27,11 +27,16 @@
 #include <QPen>
 #include <Qt>
 
+// QSpinBox：「显示点数」参数（只显示前 N 个点）。
+#include <QSpinBox>
+
 // QCustomPlot：第三方绘图控件，UI 中 ui.plot 的类型。
 #include "qcustomplot.h"
 
 // PlotController：把 ComputeResult 绘制成曲线的封装（负责降采样、坐标轴、图例）。
 #include "PlotController.h"
+// SelfTestDialog：自验对话框（输入已知正弦参数，显示理论/检测对照）。
+#include "SelfTestDialog.h"
 // SignalWorker：后台计算协调器，同时也是 SignalType / ComputeRequest 等类型的定义处。
 #include "SignalWorker.h"
 
@@ -78,6 +83,11 @@ SignalAnalyzer::SignalAnalyzer(QWidget *parent)
     // 填充信号类型、窗函数下拉框的选项。
     setupCombos();
 
+    // 时域不支持叠加对比，默认禁用「叠加对比」勾选框（仅频谱可用）。
+    ui.chkOverlay->setEnabled(currentSignalType() != SignalType::TimeDomain);
+    // 「显示点数」只对时域信号生效，频谱下禁用该参数。
+    ui.spinPointLimit->setEnabled(currentSignalType() == SignalType::TimeDomain);
+
     // ---- 用户交互 -> 本类槽函数 ----
     // 点击「导入文件夹」按钮。
     connect(ui.btnImportFolder, &QPushButton::clicked,
@@ -91,6 +101,17 @@ SignalAnalyzer::SignalAnalyzer(QWidget *parent)
     // 切换窗函数（矩形窗 / 汉宁窗）。
     connect(ui.comboWindow, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &SignalAnalyzer::onWindowChanged);
+    // 叠加对比控制：清空曲线、打开自验对话框。
+    connect(ui.btnClearCurves, &QPushButton::clicked,
+            this, &SignalAnalyzer::onClearCurves);
+    connect(ui.btnSelfTest, &QPushButton::clicked,
+            this, &SignalAnalyzer::onOpenSelfTest);
+    // 叠加勾选状态切换：取消勾选时清除叠加曲线，仅保留最近一条结果。
+    connect(ui.chkOverlay, &QCheckBox::toggled,
+            this, &SignalAnalyzer::onOverlayToggled);
+    // 显示点数参数变化：立即按新窗口重绘（不重新计算）。
+    connect(ui.spinPointLimit, QOverload<int>::of(&QSpinBox::valueChanged),
+            this, &SignalAnalyzer::onPointLimitChanged);
 
     // ---- 后台计算结果 -> 本类槽函数 ----
     // 注意：worker 已按「代际号」过滤过期结果，本类收到的总是最新一次请求的结果。
@@ -219,6 +240,7 @@ void SignalAnalyzer::onImportFolder()
         m_keyByPath.clear();
         m_currentPath.clear();
         m_plotController->clear();   // 旧文件夹的曲线不能残留
+        m_selfTestOverlayLabels.clear();
     }
     // 注：同一文件夹重复导入时不清空任何状态，走后面的判重逻辑实现「追加」。
 
@@ -353,6 +375,7 @@ void SignalAnalyzer::onFileChanged(int index)
     if (index < 0 || index >= m_importedPaths.size()) {
         m_currentPath.clear();
         m_plotController->clear();
+        m_selfTestOverlayLabels.clear();
         return;
     }
 
@@ -369,6 +392,16 @@ void SignalAnalyzer::onFileChanged(int index)
 void SignalAnalyzer::onSignalChanged(int index)
 {
     Q_UNUSED(index);
+
+    // 时域不支持叠加对比：禁用勾选框；若正勾选则强制取消（会触发清空叠加曲线）。
+    const bool spectral = (currentSignalType() != SignalType::TimeDomain);
+    ui.chkOverlay->setEnabled(spectral);
+    if (!spectral && ui.chkOverlay->isChecked())
+        ui.chkOverlay->setChecked(false);
+
+    // 「显示点数」只对时域生效：频谱下禁用（其值保留，切回时域后重新生效）。
+    ui.spinPointLimit->setEnabled(!spectral);
+
     if (!m_currentPath.isEmpty())
         requestCompute();
 }
@@ -402,6 +435,15 @@ void SignalAnalyzer::requestCompute()
     request.filePath = m_currentPath;
     request.signalType = currentSignalType();
     request.windowName = currentWindowName();
+
+    // 图例标签：文件名 · 窗函数 · 信号类型。随请求透传，避免异步回调时读到已变化的 UI 状态。
+    const QString winText = (request.windowName == QStringLiteral("hann"))
+                                ? tr("汉宁窗") : tr("矩形窗");
+    request.label = tr("%1 · %2 · %3")
+                        .arg(QFileInfo(m_currentPath).fileName(),
+                             winText,
+                             ui.comboSignal->currentText());
+
     // 异步投递：立即返回，结果稍后由 onComputeFinished 接收。
     m_worker->requestCompute(request);
 }
@@ -422,14 +464,46 @@ void SignalAnalyzer::requestCompute()
  */
 void SignalAnalyzer::onComputeFinished(const ComputeResult &result)
 {
+    // ---- 自验结果：回填弹窗对照表，按需叠加到主图，不走文件结果的常规叠加逻辑。----
+    if (result.builtin) {
+        if (m_selfTestDialog) {
+            if (result.ok)
+                m_selfTestDialog->applyDetection(result.peakFreq, result.peakMag);
+            else
+                m_selfTestDialog->reportFailure(result.error);
+        }
+        if (result.ok && m_pendingSelfTestOverlay) {
+            m_plotController->appendResult(result);
+            // 记录本次叠加的图例名，供用户取消勾选时精确移除。
+            m_selfTestOverlayLabels << result.label;
+        }
+        statusBar()->showMessage(
+            result.ok ? tr("自验：检测谱峰 %1 Hz / %2")
+                            .arg(result.peakFreq, 0, 'f', 3)
+                            .arg(result.peakMag, 0, 'f', 4)
+                      : tr("自验失败：%1").arg(result.error));
+        return;
+    }
+
     if (!result.ok) {
-        m_plotController->clear();
+        // 叠加模式下失败不清除已有曲线，避免破坏正在对比的多条曲线。
+        if (!ui.chkOverlay->isChecked())
+            m_plotController->clear();
         statusBar()->showMessage(tr("解析失败：%1").arg(result.error));
         return;
     }
 
-    // 绘制：PlotController 会根据 signalType 自动设置横轴标签与曲线数据。
-    m_plotController->setResult(result);
+    // 保存最近一次成功结果（取消叠加 / 切回时域时用其恢复单曲线）。
+    m_lastResult = result;
+    m_hasLastResult = true;
+
+    // 仅频谱类（幅值谱 / 自功率谱）允许叠加；时域强制单曲线。
+    const bool canOverlay = (result.signalType != SignalType::TimeDomain)
+                            && ui.chkOverlay->isChecked();
+    if (canOverlay)
+        m_plotController->appendResult(result);
+    else
+        m_plotController->setResult(result);
 
     // 基础统计：采样率（取整显示）与有效点数 N。
     QString message = tr("fs=%1 Hz · N=%2")
@@ -455,4 +529,88 @@ void SignalAnalyzer::onComputeFinished(const ComputeResult &result)
         message += tr(" · 插值坏行 %1").arg(result.skippedLines);
 
     statusBar()->showMessage(message);
+}
+
+// 清空所有叠加曲线。
+void SignalAnalyzer::onClearCurves()
+{
+    m_plotController->clear();
+    m_hasLastResult = false;   // 清空后无可恢复曲线
+    m_selfTestOverlayLabels.clear(); // 自验曲线随之一并清空
+    statusBar()->showMessage(tr("已清空曲线"));
+}
+
+// 叠加勾选状态变化：取消勾选时清除叠加曲线，只保留最近一条结果。
+void SignalAnalyzer::onOverlayToggled(bool checked)
+{
+    if (checked)
+        return; // 勾选时无需立即动作；后续切换配置才追加曲线。
+
+    if (m_hasLastResult)
+        m_plotController->setResult(m_lastResult); // 内部先清空再画单条
+    else
+        m_plotController->clear();
+    // setResult/clear 都会重建全部曲线，已叠加的自验曲线随之消失。
+    m_selfTestOverlayLabels.clear();
+}
+
+// 打开（或前置）自验对话框：懒创建并连接其请求信号。
+void SignalAnalyzer::onOpenSelfTest()
+{
+    if (!m_selfTestDialog) {
+        m_selfTestDialog = new SelfTestDialog(this);
+        connect(m_selfTestDialog, &SelfTestDialog::selfTestRequested,
+                this, &SignalAnalyzer::onSelfTestRequested);
+        // 取消「叠加到主图」：把已叠加的自验曲线从主图移除（文件结果保持不动）。
+        connect(m_selfTestDialog, &SelfTestDialog::overlayCancelled,
+                this, &SignalAnalyzer::onSelfTestOverlayCancelled);
+    }
+    m_selfTestDialog->show();
+    m_selfTestDialog->raise();
+    m_selfTestDialog->activateWindow();
+}
+
+// 自验请求：内置生成正弦（不读文件），走与文件相同的后台计算与谱峰检测。
+void SignalAnalyzer::onSelfTestRequested(double freq, double amp, double fs, int n, bool overlayToPlot)
+{
+    m_pendingSelfTestOverlay = overlayToPlot;
+
+    ComputeRequest request;
+    request.useBuiltin = true;
+    request.builtinFreq = freq;
+    request.builtinAmp = amp;
+    request.builtinFs = fs;
+    request.builtinN = static_cast<std::size_t>(n);
+    request.signalType = SignalType::AmplitudeSpectrum;
+    request.windowName = currentWindowName();
+    request.label = tr("自验 f=%1Hz A=%2")
+                        .arg(freq, 0, 'f', 3)
+                        .arg(amp, 0, 'f', 3);
+    m_worker->requestCompute(request);
+}
+
+// 显示点数参数变化：按新值收缩/恢复 x 轴窗口，不重新计算数据。
+void SignalAnalyzer::onPointLimitChanged(int n)
+{
+    m_plotController->setPointLimit(n);
+
+    if (m_hasLastResult) {
+        statusBar()->showMessage(
+            n > 0 ? tr("只显示前 %1 个点").arg(n) : tr("显示全部数据点"));
+    }
+}
+
+// 取消「叠加到主图」：按图例名移除此前叠加的自验曲线，文件结果曲线保持不动。
+void SignalAnalyzer::onSelfTestOverlayCancelled()
+{
+    if (m_selfTestOverlayLabels.isEmpty())
+        return;
+
+    bool removedAny = false;
+    for (const QString &label : m_selfTestOverlayLabels)
+        removedAny = m_plotController->removeResult(label) || removedAny;
+    m_selfTestOverlayLabels.clear();
+
+    if (removedAny)
+        statusBar()->showMessage(tr("已从主图移除自验曲线"));
 }

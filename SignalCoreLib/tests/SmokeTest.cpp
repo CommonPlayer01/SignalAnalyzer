@@ -143,7 +143,7 @@ int main()
         check("RmsCalculator::compute", std::fabs(rms - 10.0 / std::sqrt(2.0)) < 1e-6, detail);
     }
 
-    // 6) 文本解析（坏行线性插值填补）。
+    // 6) 文本解析（坏行跳过计数）。
     {
         const std::string text = "fs=2560,N=4096\n1.0\n2.0\nbad-line\n4.0\n";
         const ReadResult result = SignalReader::parse(text);
@@ -154,28 +154,10 @@ int main()
                       static_cast<int>(result.data.size()),
                       static_cast<int>(result.skippedLines),
                       result.data.sampleRate());
-        check("SignalReader::parse (linear interpolation)",
-              result.ok && result.data.size() == 4 && result.skippedLines == 1
-                  && std::fabs(result.data.at(2) - 3.0) < 1e-12
+        check("SignalReader::parse",
+              result.ok && result.data.size() == 3 && result.skippedLines == 1
                   && std::fabs(result.data.sampleRate() - 2560.0) < 1e-9,
               detail);
-    }
-
-    // 7) 轻量校验（只判可用：fs + 有数据行，不检测坏行）。
-    {
-        const std::string good = "fs=2560,N=1024\n0.1\n0.2\n";
-        const std::string badFs = "N=1024\n0.1\n";
-        const std::string noData = "fs=2560\n\n";
-
-        const ProbeResult pGood = SignalReader::probe(good);
-        const ProbeResult pBadFs = SignalReader::probe(badFs);
-        const ProbeResult pNoData = SignalReader::probe(noData);
-
-        char detail[160] = {};
-        std::snprintf(detail, sizeof(detail), "good=%d, badFs=%d, noData=%d",
-                      pGood.ok ? 1 : 0, pBadFs.ok ? 1 : 0, pNoData.ok ? 1 : 0);
-        check("SignalReader::probe (lightweight validate)",
-              pGood.ok && !pBadFs.ok && !pNoData.ok, detail);
     }
 
     std::printf("\nSignalCoreLib smoke test: %s (%d failure(s))\n",

@@ -42,6 +42,8 @@ set(ANALYZER_SOURCES
     include/SignalWorker.h
     src/PlotController.cpp
     include/PlotController.h
+    src/SelfTestDialog.cpp
+    include/SelfTestDialog.h
     ${UI_HEADERS}
     ${QRC_SOURCES}
 )

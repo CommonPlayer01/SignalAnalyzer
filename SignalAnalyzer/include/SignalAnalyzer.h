@@ -12,6 +12,7 @@
 #include "SignalTypes.h"
 
 class PlotController;
+class SelfTestDialog;
 class SignalWorker;
 
 // MainWindow（界面薄客户端）：仅负责交互与显示，
@@ -31,6 +32,12 @@ private slots:
     void onWindowChanged(int index);
     void onComputeFinished(const ComputeResult &result);
     void onScanFinished(const ScanResult &result);
+    void onClearCurves();
+    void onOpenSelfTest();
+    void onSelfTestRequested(double freq, double amp, double fs, int n, bool overlayToPlot);
+    void onSelfTestOverlayCancelled();
+    void onOverlayToggled(bool checked);
+    void onPointLimitChanged(int n);
 
 private:
     void setupCombos();
@@ -41,6 +48,12 @@ private:
     Ui::SignalAnalyzerClass ui;
     std::unique_ptr<SignalWorker> m_worker;
     std::unique_ptr<PlotController> m_plotController;
+
+    SelfTestDialog *m_selfTestDialog = nullptr; // 自验对话框（懒创建，父对象管理）
+    bool m_pendingSelfTestOverlay = false;      // 最近一次自验请求是否叠加到主图
+    QStringList m_selfTestOverlayLabels;        // 已叠加到主图的自验曲线图例名（取消勾选时据此清理）
+    ComputeResult m_lastResult;                 // 最近一次成功的文件计算结果（取消叠加时恢复单曲线）
+    bool m_hasLastResult = false;               // m_lastResult 是否有效
 
     QString m_dataFolder;
     QStringList m_importedPaths;   // 有效文件路径（与 comboFile 顺序一致）

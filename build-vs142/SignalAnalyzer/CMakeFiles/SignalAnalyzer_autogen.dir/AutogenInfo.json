@@ -4,7 +4,7 @@
 	"CMAKE_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer",
 	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer",
-	"CMAKE_EXECUTABLE" : "C:/Program Files/CMake/bin/cmake.exe",
+	"CMAKE_EXECUTABLE" : "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
 		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/CMakeLists.txt",
@@ -12,9 +12,8 @@
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake",
 	"CROSS_CONFIG" : false,
-	"CXX_MODULE_UNITS" : [],
-	"DEP_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "SignalAnalyzer_autogen/timestamp",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
@@ -33,6 +32,12 @@
 			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/ScanTask.h",
 			"Mu",
 			"6YEA5652QU/moc_ScanTask.cpp",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/SelfTestDialog.h",
+			"Mu",
+			"6YEA5652QU/moc_SelfTestDialog.cpp",
 			null
 		],
 		[
@@ -219,6 +224,11 @@
 		],
 		[
 			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/ScanTask.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/SelfTestDialog.cpp",
 			"Mu",
 			null
 		],

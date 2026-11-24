@@ -366,6 +366,7 @@ C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnaly
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtPrintSupport/qtprintsupportglobal.h \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtPrintSupport/qtprintsupportversion.h \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QApplication \
+  D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QCheckBox \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QComboBox \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QCommonStyle \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QHBoxLayout \
@@ -376,6 +377,7 @@ C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnaly
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QPushButton \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QScrollerProperties \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QSpacerItem \
+  D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QSpinBox \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QStatusBar \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QToolBar \
   D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets/QVBoxLayout \

@@ -2,5 +2,6 @@
 #include <6YEA5652QU/moc_ComputeTask.cpp>
 #include <6YEA5652QU/moc_PlotController.cpp>
 #include <6YEA5652QU/moc_ScanTask.cpp>
+#include <6YEA5652QU/moc_SelfTestDialog.cpp>
 #include <6YEA5652QU/moc_SignalAnalyzer.cpp>
 #include <6YEA5652QU/moc_SignalWorker.cpp>

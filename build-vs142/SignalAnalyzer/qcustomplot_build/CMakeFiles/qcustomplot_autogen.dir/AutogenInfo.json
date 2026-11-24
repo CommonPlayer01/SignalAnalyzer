@@ -4,16 +4,15 @@
 	"CMAKE_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build",
 	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot",
-	"CMAKE_EXECUTABLE" : "C:/Program Files/CMake/bin/cmake.exe",
+	"CMAKE_EXECUTABLE" : "C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
 		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot/CMakeLists.txt"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake",
 	"CROSS_CONFIG" : false,
-	"CXX_MODULE_UNITS" : [],
-	"DEP_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/qcustomplot_autogen/deps",
-	"DEP_FILE_RULE_NAME" : "qcustomplot_autogen/timestamp",
+	"DEP_FILE" : "",
+	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[

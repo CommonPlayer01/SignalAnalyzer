@@ -87,6 +87,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui.chkOverlay->setEnabled(currentSignalType() != SignalType::TimeDomain);
     // 「显示点数」只对时域信号生效，频谱下禁用该参数。
     ui.spinPointLimit->setEnabled(currentSignalType() == SignalType::TimeDomain);
+    // 自验即谱峰检测，只对「幅值谱」开放：其余类型下禁用自验按钮。
+    ui.btnSelfTest->setEnabled(currentSignalType() == SignalType::AmplitudeSpectrum);
 
     // ---- 用户交互 -> 本类槽函数 ----
     // 点击「导入文件夹」按钮。
@@ -401,6 +403,9 @@ void MainWindow::onSignalChanged(int index)
 
     // 「显示点数」只对时域生效：频谱下禁用（其值保留，切回时域后重新生效）。
     ui.spinPointLimit->setEnabled(!spectral);
+
+    // 自验功能仅「幅值谱」可用：切换类型时同步按钮可用态。
+    ui.btnSelfTest->setEnabled(currentSignalType() == SignalType::AmplitudeSpectrum);
 
     if (!m_currentPath.isEmpty())
         requestCompute();

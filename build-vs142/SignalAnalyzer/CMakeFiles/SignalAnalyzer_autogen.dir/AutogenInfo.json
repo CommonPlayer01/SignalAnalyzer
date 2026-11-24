@@ -1,0 +1,238 @@
+{
+	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
+	"BUILD_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer",
+	"CMAKE_EXECUTABLE" : "C:/Program Files/CMake/bin/cmake.exe",
+	"CMAKE_LIST_FILES" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/CMakeLists.txt",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/SignalAnalyzer.qrc"
+	],
+	"CMAKE_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake",
+	"CROSS_CONFIG" : false,
+	"CXX_MODULE_UNITS" : [],
+	"DEP_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "SignalAnalyzer_autogen/timestamp",
+	"HEADERS" : 
+	[
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/ComputeTask.h",
+			"Mu",
+			"6YEA5652QU/moc_ComputeTask.cpp",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/PlotController.h",
+			"Mu",
+			"6YEA5652QU/moc_PlotController.cpp",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/ScanTask.h",
+			"Mu",
+			"6YEA5652QU/moc_ScanTask.cpp",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/SignalAnalyzer.h",
+			"Mu",
+			"6YEA5652QU/moc_SignalAnalyzer.cpp",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/SignalTypes.h",
+			"Mu",
+			"6YEA5652QU/moc_SignalTypes.cpp",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include/SignalWorker.h",
+			"Mu",
+			"6YEA5652QU/moc_SignalWorker.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/include",
+	"INCLUDE_DIR_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/include_Debug",
+	"INCLUDE_DIR_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/include_MinSizeRel",
+	"INCLUDE_DIR_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/include_RelWithDebInfo",
+	"INCLUDE_DIR_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/include_Release",
+	"MOC_COMPILATION_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/mocs_compilation.cpp",
+	"MOC_COMPILATION_FILE_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/mocs_compilation_Debug.cpp",
+	"MOC_COMPILATION_FILE_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/mocs_compilation_MinSizeRel.cpp",
+	"MOC_COMPILATION_FILE_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/mocs_compilation_RelWithDebInfo.cpp",
+	"MOC_COMPILATION_FILE_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/mocs_compilation_Release.cpp",
+	"MOC_DEFINITIONS" : [],
+	"MOC_DEFINITIONS_Debug" : 
+	[
+		"NOMINMAX",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_PRINTSUPPORT_LIB",
+		"QT_WIDGETS_LIB",
+		"WIN32",
+		"WIN32_LEAN_AND_MEAN"
+	],
+	"MOC_DEFINITIONS_MinSizeRel" : 
+	[
+		"NOMINMAX",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
+		"QT_PRINTSUPPORT_LIB",
+		"QT_WIDGETS_LIB",
+		"WIN32",
+		"WIN32_LEAN_AND_MEAN"
+	],
+	"MOC_DEFINITIONS_RelWithDebInfo" : 
+	[
+		"NOMINMAX",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
+		"QT_PRINTSUPPORT_LIB",
+		"QT_WIDGETS_LIB",
+		"WIN32",
+		"WIN32_LEAN_AND_MEAN"
+	],
+	"MOC_DEFINITIONS_Release" : 
+	[
+		"NOMINMAX",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_NO_DEBUG",
+		"QT_PRINTSUPPORT_LIB",
+		"QT_WIDGETS_LIB",
+		"WIN32",
+		"WIN32_LEAN_AND_MEAN"
+	],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : [],
+	"MOC_INCLUDES_Debug" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtGui",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtANGLE",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtCore",
+		"D:/Software/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtPrintSupport"
+	],
+	"MOC_INCLUDES_MinSizeRel" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtGui",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtANGLE",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtCore",
+		"D:/Software/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtPrintSupport"
+	],
+	"MOC_INCLUDES_RelWithDebInfo" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtGui",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtANGLE",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtCore",
+		"D:/Software/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtPrintSupport"
+	],
+	"MOC_INCLUDES_Release" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/third_party/qcustomplot",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtGui",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtANGLE",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtCore",
+		"D:/Software/Qt/5.15.2/msvc2019_64/mkspecs/win32-msvc",
+		"D:/Software/Qt/5.15.2/msvc2019_64/include/QtPrintSupport"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : [],
+	"MOC_PREDEFS_FILE" : "",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qrc_SignalAnalyzer.cpp",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/ui_SignalAnalyzer.h"
+	],
+	"MULTI_CONFIG" : true,
+	"PARALLEL" : 6,
+	"PARSE_CACHE_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/ParseCache_Debug.txt",
+	"PARSE_CACHE_FILE_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/ParseCache_MinSizeRel.txt",
+	"PARSE_CACHE_FILE_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/ParseCache_RelWithDebInfo.txt",
+	"PARSE_CACHE_FILE_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/ParseCache_Release.txt",
+	"QT_MOC_EXECUTABLE" : "D:/Software/Qt/5.15.2/msvc2019_64/bin/moc.exe",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/AutogenUsed_Debug.txt",
+	"SETTINGS_FILE_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/AutogenUsed_MinSizeRel.txt",
+	"SETTINGS_FILE_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
+	"SETTINGS_FILE_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/CMakeFiles/SignalAnalyzer_autogen.dir/AutogenUsed_Release.txt",
+	"SOURCES" : 
+	[
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/main.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/ComputeTask.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/PlotController.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/ScanTask.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/SignalAnalyzer.cpp",
+			"Mu",
+			null
+		],
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/src/SignalWorker.cpp",
+			"Mu",
+			null
+		]
+	],
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

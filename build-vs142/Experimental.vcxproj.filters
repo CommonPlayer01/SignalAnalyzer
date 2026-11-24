@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\3c479705a643f86666b4fc548ea33f53\Experimental.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\Experimental" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{70F38560-9B70-3120-8915-E143AE354B77}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

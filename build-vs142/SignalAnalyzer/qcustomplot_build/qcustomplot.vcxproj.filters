@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\third_party\qcustomplot\qcustomplot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\mocs_compilation_MinSizeRel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\third_party\qcustomplot\qcustomplot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\CMakeFiles\4005305e5eeca07ddb471a5ee64af822\timestamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\third_party\qcustomplot\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\work\Desktop\qt-demo-cmake\SignalAnalyzer-cmake\build-vs142\SignalAnalyzer\qcustomplot_build\qcustomplot_autogen\timestamp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{70F38560-9B70-3120-8915-E143AE354B77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{CA772698-3981-35C1-BE2C-1432C9544FA9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9443408D-FB03-345F-AC7D-8FEA8737A4D7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

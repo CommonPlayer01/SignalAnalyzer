@@ -1,0 +1,52 @@
+#pragma once
+
+#include <QtWidgets/QMainWindow>
+
+#include <QHash>
+#include <QStringList>
+
+#include <memory>
+
+#include "ui_SignalAnalyzer.h"
+
+#include "SignalTypes.h"
+
+class PlotController;
+class SignalWorker;
+
+// MainWindow（界面薄客户端）：仅负责交互与显示，
+// 全部计算通过 SignalWorker（App 内调用 SignalCore 的唯一入口）发起。
+class SignalAnalyzer : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    SignalAnalyzer(QWidget *parent = nullptr);
+    ~SignalAnalyzer();
+
+private slots:
+    void onImportFolder();
+    void onFileChanged(int index);
+    void onSignalChanged(int index);
+    void onWindowChanged(int index);
+    void onComputeFinished(const ComputeResult &result);
+    void onScanFinished(const ScanResult &result);
+
+private:
+    void setupCombos();
+    void requestCompute();
+    SignalType currentSignalType() const;
+    QString currentWindowName() const;
+
+    Ui::SignalAnalyzerClass ui;
+    std::unique_ptr<SignalWorker> m_worker;
+    std::unique_ptr<PlotController> m_plotController;
+
+    QString m_dataFolder;
+    QStringList m_importedPaths;   // 有效文件路径（与 comboFile 顺序一致）
+    QHash<QString, QString> m_keyByPath;  // 绝对路径 -> 「文件名|大小|修改时间」内容签名（路径为身份）
+    QString m_currentPath;         // 当前选中文件
+    int m_pendingDuplicates = 0;   // 本次导入路径已存在且内容未变化的文件数
+    int m_pendingUpdated = 0;      // 本次导入内容已变化、复用原条目并刷新签名的文件数
+    bool m_pendingCurrentUpdate = false; // 当前查看文件的内容是否已变化（扫描结束后需重算）
+};

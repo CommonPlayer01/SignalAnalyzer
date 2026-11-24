@@ -1,0 +1,98 @@
+{
+	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
+	"BUILD_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib",
+	"CMAKE_EXECUTABLE" : "C:/Program Files/CMake/bin/cmake.exe",
+	"CMAKE_LIST_FILES" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/CMakeLists.txt",
+		"C:/Program Files/CMake/share/cmake-4.5/Modules/GNUInstallDirs.cmake"
+	],
+	"CMAKE_SOURCE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake",
+	"CROSS_CONFIG" : false,
+	"CXX_MODULE_UNITS" : [],
+	"DEP_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "SignalCoreLibSmokeTest_autogen/timestamp",
+	"HEADERS" : [],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/include",
+	"INCLUDE_DIR_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/include_Debug",
+	"INCLUDE_DIR_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/include_MinSizeRel",
+	"INCLUDE_DIR_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/include_RelWithDebInfo",
+	"INCLUDE_DIR_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/include_Release",
+	"MOC_COMPILATION_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/mocs_compilation.cpp",
+	"MOC_COMPILATION_FILE_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/mocs_compilation_Debug.cpp",
+	"MOC_COMPILATION_FILE_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/mocs_compilation_MinSizeRel.cpp",
+	"MOC_COMPILATION_FILE_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/mocs_compilation_RelWithDebInfo.cpp",
+	"MOC_COMPILATION_FILE_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLibSmokeTest_autogen/mocs_compilation_Release.cpp",
+	"MOC_DEFINITIONS" : [],
+	"MOC_DEFINITIONS_Debug" : [ "NOMINMAX", "WIN32", "WIN32_LEAN_AND_MEAN" ],
+	"MOC_DEFINITIONS_MinSizeRel" : [ "NOMINMAX", "WIN32", "WIN32_LEAN_AND_MEAN" ],
+	"MOC_DEFINITIONS_RelWithDebInfo" : [ "NOMINMAX", "WIN32", "WIN32_LEAN_AND_MEAN" ],
+	"MOC_DEFINITIONS_Release" : [ "NOMINMAX", "WIN32", "WIN32_LEAN_AND_MEAN" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : [],
+	"MOC_INCLUDES_Debug" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include"
+	],
+	"MOC_INCLUDES_MinSizeRel" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include"
+	],
+	"MOC_INCLUDES_RelWithDebInfo" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include"
+	],
+	"MOC_INCLUDES_Release" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : [],
+	"MOC_PREDEFS_FILE" : "",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLib_autogen/mocs_compilation_Debug.cpp",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLib_autogen/mocs_compilation_MinSizeRel.cpp",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLib_autogen/mocs_compilation_RelWithDebInfo.cpp",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/SignalCoreLib_autogen/mocs_compilation_Release.cpp"
+	],
+	"MULTI_CONFIG" : true,
+	"PARALLEL" : 6,
+	"PARSE_CACHE_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/ParseCache_Debug.txt",
+	"PARSE_CACHE_FILE_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/ParseCache_MinSizeRel.txt",
+	"PARSE_CACHE_FILE_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/ParseCache_RelWithDebInfo.txt",
+	"PARSE_CACHE_FILE_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/ParseCache_Release.txt",
+	"QT_MOC_EXECUTABLE" : "D:/Software/Qt/5.15.2/msvc2019_64/bin/moc.exe",
+	"QT_UIC_EXECUTABLE" : "",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE_Debug" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/AutogenUsed_Debug.txt",
+	"SETTINGS_FILE_MinSizeRel" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/AutogenUsed_MinSizeRel.txt",
+	"SETTINGS_FILE_RelWithDebInfo" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
+	"SETTINGS_FILE_Release" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/CMakeFiles/SignalCoreLibSmokeTest_autogen.dir/AutogenUsed_Release.txt",
+	"SOURCES" : 
+	[
+		[
+			"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/tests/SmokeTest.cpp",
+			"Mu",
+			null
+		]
+	],
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

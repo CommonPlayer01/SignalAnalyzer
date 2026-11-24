@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UI version="4.0" >
+ <class>SignalAnalyzerClass</class>
+ <widget class="QMainWindow" name="SignalAnalyzerClass" >
+  <property name="objectName" >
+   <string notr="true">SignalAnalyzerClass</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>信号分析器</string>
+  </property>
+  <widget class="QWidget" name="centralWidget" >
+   <layout class="QVBoxLayout" name="verticalLayout" >
+    <item>
+     <layout class="QHBoxLayout" name="controlLayout" >
+      <item>
+       <widget class="QPushButton" name="btnImportFolder" >
+        <property name="text" >
+         <string>导入数据源文件夹</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblFile" >
+        <property name="text" >
+         <string>文件选择</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboFile" >
+        <property name="minimumSize" >
+         <size>
+          <width>180</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblSignal" >
+        <property name="text" >
+         <string>信号选择</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboSignal" >
+        <property name="minimumSize" >
+         <size>
+          <width>140</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblWindow" >
+        <property name="text" >
+         <string>窗函数选择</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboWindow" >
+        <property name="minimumSize" >
+         <size>
+          <width>140</width>
+          <height>0</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer" >
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0" >
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QCustomPlot" name="plot" >
+      <property name="sizePolicy" >
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding" >
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar" />
+  <widget class="QToolBar" name="mainToolBar" />
+  <widget class="QStatusBar" name="statusBar" />
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+  </customwidget>
+ </customwidgets>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources>
+   <include location="SignalAnalyzer.qrc"/>
+ </resources>
+ <connections/>
+</UI>

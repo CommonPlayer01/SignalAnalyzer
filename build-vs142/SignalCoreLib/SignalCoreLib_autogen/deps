@@ -1,0 +1,17 @@
+SignalCoreLib_autogen/timestamp: \
+	C:/Program\ Files/CMake/share/cmake-4.5/Modules/GNUInstallDirs.cmake \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/CMakeLists.txt \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/Fft.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/HannWindow.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/IWindow.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/RectWindow.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/RmsCalculator.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/SignalData.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/SignalReader.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/SpectrumAnalyzer.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include/SignalCoreLib/WindowFactory.h \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/src/Fft.cpp \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/src/SignalReader.cpp \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/src/SpectrumAnalyzer.cpp \
+	C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/src/WindowFactory.cpp \
+	C:/Program\ Files/CMake/bin/cmake.exe

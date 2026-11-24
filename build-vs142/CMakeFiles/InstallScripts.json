@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/cmake_install.cmake",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalCoreLib/cmake_install.cmake",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/cmake_install.cmake",
+		"C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/qcustomplot_build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

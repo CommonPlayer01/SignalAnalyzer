@@ -1,0 +1,692 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/Release/SignalAnalyzer.exe"
+		},
+		{
+			"path" : "bin/Release/SignalAnalyzer.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"set_property",
+			"_populate_Widgets_target_properties",
+			"find_package",
+			"include",
+			"add_custom_command",
+			"qt5_wrap_ui",
+			"qt5_add_resources",
+			"target_compile_options",
+			"add_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"SignalAnalyzer/CMakeLists.txt",
+			"third_party/qcustomplot/CMakeLists.txt",
+			"D:/Software/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+			"D:/Software/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5/Qt5Config.cmake",
+			"CMakeLists.txt",
+			"D:/Software/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+			"D:/Software/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake",
+			"D:/Software/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+			"D:/Software/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+			"D:/Software/Qt/5.15.2/msvc2019_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 55,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 59,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 10,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 52,
+				"parent" : 0
+			},
+			{
+				"file" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 4,
+				"line" : 25,
+				"parent" : 7
+			},
+			{
+				"file" : 3,
+				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 28,
+				"parent" : 9
+			},
+			{
+				"file" : 2,
+				"parent" : 10
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 207,
+				"parent" : 11
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 44,
+				"parent" : 12
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 105,
+				"parent" : 11
+			},
+			{
+				"file" : 7,
+				"parent" : 14
+			},
+			{
+				"command" : 4,
+				"file" : 7,
+				"line" : 105,
+				"parent" : 15
+			},
+			{
+				"file" : 6,
+				"parent" : 16
+			},
+			{
+				"command" : 5,
+				"file" : 6,
+				"line" : 241,
+				"parent" : 17
+			},
+			{
+				"file" : 5,
+				"parent" : 18
+			},
+			{
+				"command" : 2,
+				"file" : 5,
+				"line" : 113,
+				"parent" : 19
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 8,
+				"line" : 58,
+				"parent" : 21
+			},
+			{
+				"command" : 8,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 6,
+				"file" : 9,
+				"line" : 342,
+				"parent" : 23
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 75,
+				"parent" : 0
+			},
+			{
+				"command" : 10,
+				"file" : 4,
+				"line" : 33,
+				"parent" : 7
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 62,
+				"parent" : 0
+			},
+			{
+				"command" : 11,
+				"file" : 0,
+				"line" : 68,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 12
+	},
+	"compileDependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "Qt5::Widgets::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "SignalCoreLib::@6edb2ac3afb3a8adfbb3"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "qcustomplot::@72c5ce997ced2b6f8af5"
+		}
+	],
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -std:c++17 -MD"
+				},
+				{
+					"backtrace" : 25,
+					"fragment" : "/utf-8"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 26,
+					"define" : "NOMINMAX"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_NO_DEBUG"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "QT_PRINTSUPPORT_LIB"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_WIDGETS_LIB"
+				},
+				{
+					"backtrace" : 26,
+					"define" : "WIN32_LEAN_AND_MEAN"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 0,
+					"path" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/include_Release"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/include"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalAnalyzer/../third_party/qcustomplot"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/build-vs142/SignalAnalyzer"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "C:/Users/work/Desktop/qt-demo-cmake/SignalAnalyzer-cmake/SignalCoreLib/include"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/Software/Qt/5.15.2/msvc2019_64/include"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/Software/Qt/5.15.2/msvc2019_64/include/QtWidgets"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/Software/Qt/5.15.2/msvc2019_64/include/QtGui"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/Software/Qt/5.15.2/msvc2019_64/include/QtANGLE"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/Software/Qt/5.15.2/msvc2019_64/include/QtCore"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "D:/Software/Qt/5.15.2/msvc2019_64/./mkspecs/win32-msvc"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "D:/Software/Qt/5.15.2/msvc2019_64/include/QtPrintSupport"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					6
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				5,
+				7,
+				9,
+				11,
+				14
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "SignalCoreLib::@6edb2ac3afb3a8adfbb3"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "qcustomplot::@72c5ce997ced2b6f8af5"
+		}
+	],
+	"id" : "SignalAnalyzer::@44c3440a50bbe1b2a8e1",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /GR /EHsc /O2 /Ob2 /DNDEBUG -MD",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /INCREMENTAL:NO",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/subsystem:windows",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "..\\lib\\Release\\SignalCoreLib.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "..\\lib\\Release\\qcustomplot.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "D:\\Software\\Qt\\5.15.2\\msvc2019_64\\lib\\Qt5PrintSupport.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "D:\\Software\\Qt\\5.15.2\\msvc2019_64\\lib\\Qt5Widgets.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "D:\\Software\\Qt\\5.15.2\\msvc2019_64\\lib\\Qt5Gui.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 13,
+				"fragment" : "D:\\Software\\Qt\\5.15.2\\msvc2019_64\\lib\\Qt5Core.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 20,
+				"fragment" : "D:\\Software\\Qt\\5.15.2\\msvc2019_64\\lib\\qtmain.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "Qt5::Widgets::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "SignalCoreLib::@6edb2ac3afb3a8adfbb3"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "qcustomplot::@72c5ce997ced2b6f8af5"
+		}
+	],
+	"name" : "SignalAnalyzer",
+	"nameOnDisk" : "SignalAnalyzer.exe",
+	"orderDependencies" : 
+	[
+		{
+			"backtrace" : 22,
+			"id" : "Qt5::uic::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "Qt5::moc::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "Qt5::moc::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 24,
+			"id" : "Qt5::rcc::@6890427a1f51a3e7e1df"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "SignalAnalyzer",
+		"source" : "SignalAnalyzer"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				5,
+				7,
+				9,
+				11,
+				14
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				3,
+				4,
+				6,
+				8,
+				10,
+				12,
+				13
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				15,
+				16,
+				17
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				18
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"backtraces" : 
+			[
+				0
+			],
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/mocs_compilation_Release.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "SignalAnalyzer/main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "SignalAnalyzer/src/SignalAnalyzer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"path" : "SignalAnalyzer/include/SignalAnalyzer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"path" : "SignalAnalyzer/include/SignalTypes.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "SignalAnalyzer/src/ComputeTask.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"path" : "SignalAnalyzer/include/ComputeTask.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "SignalAnalyzer/src/ScanTask.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"path" : "SignalAnalyzer/include/ScanTask.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "SignalAnalyzer/src/SignalWorker.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"path" : "SignalAnalyzer/include/SignalWorker.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"path" : "SignalAnalyzer/src/PlotController.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"path" : "SignalAnalyzer/include/PlotController.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"isGenerated" : true,
+			"path" : "build-vs142/SignalAnalyzer/ui_SignalAnalyzer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build-vs142/SignalAnalyzer/qrc_SignalAnalyzer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"backtraces" : 
+			[
+				0
+			],
+			"isGenerated" : true,
+			"path" : "build-vs142/SignalAnalyzer/SignalAnalyzer_autogen/timestamp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"backtraces" : 
+			[
+				0
+			],
+			"path" : "SignalAnalyzer/SignalAnalyzer.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"backtraces" : 
+			[
+				0
+			],
+			"path" : "SignalAnalyzer/SignalAnalyzer.qrc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"backtraces" : 
+			[
+				0
+			],
+			"isGenerated" : true,
+			"path" : "build-vs142/CMakeFiles/6589a99245d3623138b543285c463cac/timestamp.rule",
+			"sourceGroupIndex" : 3
+		}
+	],
+	"type" : "EXECUTABLE"
+}

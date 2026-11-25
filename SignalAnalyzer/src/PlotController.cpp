@@ -106,6 +106,22 @@ void PlotController::appendResult(const ComputeResult &result)
     m_plot->replot();
 }
 
+bool PlotController::hasResult(const QString &label) const
+{
+    if (m_plot == nullptr || label.isEmpty())
+        return false;
+
+    for (int i = 0; i < m_plot->graphCount(); ++i) {
+        const QCPGraph *graph = m_plot->graph(i);
+        // 只把「可见且含数据」的曲线视为已绘制：clear() 后隐藏空曲线不计入，
+        // 避免残留的图名造成误判重。
+        if (graph != nullptr && graph->visible() && !graph->data()->isEmpty()
+            && graph->name() == label)
+            return true;
+    }
+    return false;
+}
+
 bool PlotController::removeResult(const QString &label)
 {
     if (m_plot == nullptr || label.isEmpty())

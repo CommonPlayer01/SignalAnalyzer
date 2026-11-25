@@ -21,6 +21,9 @@ public:
     void setResult(const ComputeResult &result);
     // 在现有曲线上追加一条（叠加对比）。
     void appendResult(const ComputeResult &result);
+    // 当前绘图区是否已存在图例名为 label 的曲线（叠加绘制前的判重）。
+    // 只统计可见且含数据的曲线；clear() 后隐藏的空曲线不计入。
+    bool hasResult(const QString &label) const;
     // 移除图例名等于 label 的曲线（撤销「自验叠加到主图」的入口）。
     // 返回是否真的移除了曲线；移除后重排剩余曲线的配色并重绘。
     bool removeResult(const QString &label);

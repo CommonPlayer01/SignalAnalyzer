@@ -487,9 +487,12 @@ void MainWindow::onComputeFinished(const ComputeResult &result)
                 m_selfTestDialog->reportFailure(result.error);
         }
         if (result.ok && m_pendingSelfTestOverlay) {
-            m_plotController->appendResult(result);
-            // 记录本次叠加的图例名，供用户取消勾选时精确移除。
-            m_selfTestOverlayLabels << result.label;
+            // 叠加前判重：同一条自验曲线已在屏幕上时不重复绘制。
+            if (!m_plotController->hasResult(result.label)) {
+                m_plotController->appendResult(result);
+                // 记录本次叠加的图例名，供用户取消勾选时精确移除。
+                m_selfTestOverlayLabels << result.label;
+            }
         }
         statusBar()->showMessage(
             result.ok ? tr("自验：检测谱峰 %1 Hz / %2")
@@ -514,9 +517,11 @@ void MainWindow::onComputeFinished(const ComputeResult &result)
     // 仅频谱类（幅值谱 / 自功率谱）允许叠加；时域强制单曲线。
     const bool canOverlay = (result.signalType != SignalType::TimeDomain)
                             && ui.chkOverlay->isChecked();
-    if (canOverlay)
-        m_plotController->appendResult(result);
-    else
+    if (canOverlay) {
+        // 叠加前判重：切换到已在屏幕上的曲线（同 file+窗+类型）时不再追加第二条。
+        if (!m_plotController->hasResult(result.label))
+            m_plotController->appendResult(result);
+    } else
         m_plotController->setResult(result);
 
     // 基础统计：采样率（取整显示）与有效点数 N。

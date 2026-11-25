@@ -29,6 +29,9 @@ public:
     void setPointLimit(int n);
     // 清空所有曲线数据。
     void clear();
+    // 将当前绘图区导出为图片文件（按扩展名自动选择格式，如 .png/.jpg/.bmp）。
+    // 返回是否导出成功。
+    bool exportImage(const QString &filePath);
 
 private:
     // 取得下一条可用曲线（按需 addGraph），并按 4 色调色板循环配色。

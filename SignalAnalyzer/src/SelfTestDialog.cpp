@@ -18,6 +18,10 @@ constexpr int kFreqRow = 0;
 constexpr int kAmpRow = 1;
 }
 
+/**
+ * @brief 构造函数：搭建自验对话框界面（4 个参数输入、生成按钮、叠加勾选、
+ *        理论/检测对照表），并连接生成按钮与「取消叠加」信号的槽。
+ */
 SelfTestDialog::SelfTestDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -94,6 +98,10 @@ SelfTestDialog::SelfTestDialog(QWidget *parent)
     });
 }
 
+/**
+ * @brief 「生成并检测」按钮槽：读取 f/A/fs/N 四个参数，先把理论值填入表格、
+ *        检测值置为「检测中…」，然后发 selfTestRequested 请求主窗口生成正弦并检测。
+ */
 void SelfTestDialog::onGenerateClicked()
 {
     m_theoryFreq = m_freqSpin->value();
@@ -113,6 +121,9 @@ void SelfTestDialog::onGenerateClicked()
     emit selfTestRequested(m_theoryFreq, m_theoryAmp, fs, n, m_overlayCheck->isChecked());
 }
 
+/**
+ * @brief 主窗口回填检测结果：把检测到的频率/幅值与理论值之差写入表格，并恢复按钮可用。
+ */
 void SelfTestDialog::applyDetection(double detFreq, double detMag)
 {
     m_generateBtn->setEnabled(true);
@@ -126,6 +137,9 @@ void SelfTestDialog::applyDetection(double detFreq, double detMag)
     m_table->setItem(kAmpRow, 2, new QTableWidgetItem(QString::number(ampErr, 'f', 4)));
 }
 
+/**
+ * @brief 自验计算失败处理：恢复按钮可用，表格检测值标为「失败」并显示原因。
+ */
 void SelfTestDialog::reportFailure(const QString &error)
 {
     m_generateBtn->setEnabled(true);

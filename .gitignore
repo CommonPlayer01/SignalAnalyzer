@@ -362,8 +362,11 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-build-vs142
+build-vs142/
 
-docs
+docs/
 
-export
+export/
+
+.trae-html-share-packages
+SignalAnalyzer-DataFlow.html

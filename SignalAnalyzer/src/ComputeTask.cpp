@@ -80,11 +80,14 @@ bool ComputeTask::isStale(quint64 generation) const
     return m_generation->load(std::memory_order_relaxed) != generation;
 }
 
+// 处理单个计算请求：工作线程内完成信号获取、频谱/时域分析、降采样，最后发布结果。
 void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 generation)
 {
+    // 代际号已过期（期间已有更新的请求发出），本次旧请求直接丢弃。
     if (isStale(generation))
         return;
 
+    // 初始化结果对象：带回代际号与请求元信息，后续再逐步填充计算产物。
     ComputeResult result;
     result.generation = generation;
     result.signalType = request.signalType;
@@ -121,6 +124,7 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
     if (isStale(generation))
         return;
 
+    // 数据就绪：标记计算成功，并记录采样率与数据点数等基础信息。
     result.ok = true;
     result.fs = data.sampleRate();
     result.pointCount = data.size();
@@ -170,6 +174,7 @@ void ComputeTask::onComputeRequest(const ComputeRequest &request, quint64 genera
         ys = std::move(spectrum.magnitudes);
     }
 
+    // RMS 均方根：基于原始样本序列计算，不受加窗处理影响。
     result.rms = SignalCoreLib::RmsCalculator::compute(data.samples());
 
     if (isStale(generation))

@@ -34,6 +34,7 @@ private slots:
     void onScanFinished(const ScanResult &result);
     void onClearCurves();
     void onOpenSelfTest();
+    void onExportImage();
     void onSelfTestRequested(double freq, double amp, double fs, int n, bool overlayToPlot);
     void onSelfTestOverlayCancelled();
     void onOverlayToggled(bool checked);

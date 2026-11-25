@@ -108,6 +108,9 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::onClearCurves);
     connect(ui.btnSelfTest, &QPushButton::clicked,
             this, &MainWindow::onOpenSelfTest);
+    // 导出图片：把当前绘图区保存为图片文件（按扩展名选格式）。
+    connect(ui.btnExportImage, &QPushButton::clicked,
+            this, &MainWindow::onExportImage);
     // 叠加勾选状态切换：取消勾选时清除叠加曲线，仅保留最近一条结果。
     connect(ui.chkOverlay, &QCheckBox::toggled,
             this, &MainWindow::onOverlayToggled);
@@ -608,6 +611,38 @@ void MainWindow::onPointLimitChanged(int n)
     if (m_hasLastResult) {
         statusBar()->showMessage(
             n > 0 ? tr("只显示前 %1 个点").arg(n) : tr("显示全部数据点"));
+    }
+}
+
+// 导出图片：弹出保存对话框，把当前绘图区保存为图片文件。
+void MainWindow::onExportImage()
+{
+    // 默认文件名：基名_信号类型_窗函数，存放目录跟随当前数据源文件夹。
+    // 信号类型复用下拉框当前文本；窗函数沿用与图例一致的 hann→汉宁窗 映射。
+    QString defaultPath;
+    if (!m_currentPath.isEmpty()) {
+        const QFileInfo fi(m_currentPath);
+        const QString winText = (currentWindowName() == QStringLiteral("hann"))
+                                    ? tr("汉宁窗") : tr("矩形窗");
+        const QString baseName = QStringLiteral("%1_%2_%3")
+                                     .arg(fi.completeBaseName(),
+                                          ui.comboSignal->currentText(),
+                                          winText);
+        defaultPath = fi.absoluteDir().absoluteFilePath(baseName + QStringLiteral(".png"));
+    }
+
+    const QString filePath = QFileDialog::getSaveFileName(
+        this,
+        tr("导出图片"),
+        defaultPath,
+        tr("PNG 图片 (*.png);;JPEG 图片 (*.jpg *.jpeg);;BMP 图片 (*.bmp)"));
+    if (filePath.isEmpty())
+        return; // 用户取消
+
+    if (m_plotController->exportImage(filePath)) {
+        statusBar()->showMessage(tr("图片已导出：%1").arg(filePath));
+    } else {
+        statusBar()->showMessage(tr("导出图片失败：%1").arg(filePath));
     }
 }
 

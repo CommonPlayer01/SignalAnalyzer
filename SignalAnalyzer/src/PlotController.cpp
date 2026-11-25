@@ -2,6 +2,7 @@
 
 #include <QColor>
 #include <QPen>
+#include <QPixmap>
 #include <QVector>
 #include <Qt>
 
@@ -207,4 +208,15 @@ void PlotController::clear()
     }
     m_curveCount = 0;
     m_plot->replot();
+}
+
+bool PlotController::exportImage(const QString &filePath)
+{
+    if (m_plot == nullptr || filePath.isEmpty())
+        return false;
+
+    // toPixmap 先在内存渲染当前绘图区，再由 QPixmap::save 按文件扩展名选择格式。
+    // 使用较高 scale 保证导出清晰度（打印/报告场景）；与屏幕分辨率无关。
+    const QPixmap pixmap = m_plot->toPixmap(0, 0, 2.0);
+    return pixmap.save(filePath);
 }

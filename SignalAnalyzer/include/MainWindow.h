@@ -45,6 +45,9 @@ private:
     void requestCompute();
     SignalType currentSignalType() const;
     QString currentWindowName() const;
+    // 统一刷新「叠加对比 / 自验」的可用态：二者互斥，只能其一激活。
+    // 叠加模式激活或自验对话框打开时，均会禁用另一方（及自身入口按钮）。
+    void updateSelfTestOverlayLock();
 
     Ui::MainWindow ui;
     std::unique_ptr<SignalWorker> m_worker;

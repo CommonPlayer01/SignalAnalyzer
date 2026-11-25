@@ -24,8 +24,6 @@ set(SIGNALCORELIB_HEADERS
     include/SignalCoreLib/RmsCalculator.h
     include/SignalCoreLib/Fft.h
     include/SignalCoreLib/IWindow.h
-    include/SignalCoreLib/RectWindow.h
-    include/SignalCoreLib/HannWindow.h
     include/SignalCoreLib/WindowFactory.h
     include/SignalCoreLib/SpectrumAnalyzer.h
     include/SignalCoreLib/SignalReader.h

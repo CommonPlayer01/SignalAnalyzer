@@ -7,7 +7,7 @@
 // ============================================================================
 
 #include "SignalCoreLib/Fft.h"
-#include "SignalCoreLib/HannWindow.h"
+#include "SignalCoreLib/IWindow.h"
 #include "SignalCoreLib/RmsCalculator.h"
 #include "SignalCoreLib/SignalData.h"
 #include "SignalCoreLib/SignalReader.h"
@@ -143,21 +143,25 @@ int main()
         check("RmsCalculator::compute", std::fabs(rms - 10.0 / std::sqrt(2.0)) < 1e-6, detail);
     }
 
-    // 6) 文本解析（坏行跳过计数）。
+    // 6) 文本解析（坏行线性插值填补，保持等间隔采样）。
     {
         const std::string text = "fs=2560,N=4096\n1.0\n2.0\nbad-line\n4.0\n";
         const ReadResult result = SignalReader::parse(text);
 
+        // 坏行 bad-line 位于 2.0 与 4.0 之间，按等间隔线性插值为 3.0；
+        // 样本数 = 非空数据行总数（含插值填补的坏行），而非「跳过坏行」后的 3。
+        const bool interpOk = result.ok && result.data.size() == 4
+                              && result.skippedLines == 1
+                              && std::fabs(result.data.sampleRate() - 2560.0) < 1e-9
+                              && std::fabs(result.data.at(2) - 3.0) < 1e-9;
+
         char detail[160] = {};
-        std::snprintf(detail, sizeof(detail), "ok=%d, samples=%d, skipped=%d, fs=%.0f",
+        std::snprintf(detail, sizeof(detail), "ok=%d, samples=%d, skipped=%d, x[2]=%.3f",
                       result.ok ? 1 : 0,
                       static_cast<int>(result.data.size()),
                       static_cast<int>(result.skippedLines),
-                      result.data.sampleRate());
-        check("SignalReader::parse",
-              result.ok && result.data.size() == 3 && result.skippedLines == 1
-                  && std::fabs(result.data.sampleRate() - 2560.0) < 1e-9,
-              detail);
+                      result.data.size() > 2 ? result.data.at(2) : -1.0);
+        check("SignalReader::parse", interpOk, detail);
     }
 
     std::printf("\nSignalCoreLib smoke test: %s (%d failure(s))\n",

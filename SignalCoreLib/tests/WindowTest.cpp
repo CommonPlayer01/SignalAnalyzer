@@ -9,8 +9,7 @@
 //   本套件： build\Release\SignalCoreLibTests.exe --gtest_filter=WindowTest.*
 // ============================================================================
 
-#include "SignalCoreLib/HannWindow.h"
-#include "SignalCoreLib/RectWindow.h"
+#include "SignalCoreLib/IWindow.h"
 #include "SignalCoreLib/SignalData.h"
 #include "SignalCoreLib/SpectrumAnalyzer.h"
 #include "SignalCoreLib/WindowFactory.h"

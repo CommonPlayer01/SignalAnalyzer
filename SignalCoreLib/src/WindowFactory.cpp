@@ -1,6 +1,5 @@
 #include "SignalCoreLib/WindowFactory.h"
-#include "SignalCoreLib/RectWindow.h"
-#include "SignalCoreLib/HannWindow.h"
+#include "SignalCoreLib/IWindow.h"
 
 namespace SignalCoreLib {
 

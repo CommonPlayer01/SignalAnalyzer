@@ -21,6 +21,7 @@
 
 using Complex = SignalCoreLib::Fft::Complex;
 
+
 TEST(FftTest, IntegerPeriodSinePeakFrequencyAndAmplitude) {
     const double fs = 256.0;
     const std::size_t n = 64;
@@ -35,7 +36,7 @@ TEST(FftTest, IntegerPeriodSinePeakFrequencyAndAmplitude) {
 
     Fft::forward(x);
 
-    // 频点 k0 = f0 * n / fs，幅值 = amplitude * n / 2（单边谱放大）。
+    // k0 = 4 * <delta>f 频点 k0 = f0 * n / fs，幅值 = amplitude * n / 2（单边谱放大）。
     const std::size_t k0 = static_cast<std::size_t>(f0 * static_cast<double>(n) / fs);
     EXPECT_NEAR(std::abs(x[k0]), amplitude * static_cast<double>(n) / 2.0, 1e-6);
 }

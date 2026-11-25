@@ -19,8 +19,6 @@ HEADERS += \
     $$PWD/include/SignalCoreLib/RmsCalculator.h \
     $$PWD/include/SignalCoreLib/Fft.h \
     $$PWD/include/SignalCoreLib/IWindow.h \
-    $$PWD/include/SignalCoreLib/RectWindow.h \
-    $$PWD/include/SignalCoreLib/HannWindow.h \
     $$PWD/include/SignalCoreLib/WindowFactory.h \
     $$PWD/include/SignalCoreLib/SpectrumAnalyzer.h \
     $$PWD/include/SignalCoreLib/SignalReader.h

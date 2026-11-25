@@ -83,12 +83,11 @@ MainWindow::MainWindow(QWidget *parent)
     // 填充信号类型、窗函数下拉框的选项。
     setupCombos();
 
-    // 时域不支持叠加对比，默认禁用「叠加对比」勾选框（仅频谱可用）。
-    ui.chkOverlay->setEnabled(currentSignalType() != SignalType::TimeDomain);
     // 「显示点数」只对时域信号生效，频谱下禁用该参数。
     ui.spinPointLimit->setEnabled(currentSignalType() == SignalType::TimeDomain);
-    // 自验即谱峰检测，只对「幅值谱」开放：其余类型下禁用自验按钮。
-    ui.btnSelfTest->setEnabled(currentSignalType() == SignalType::AmplitudeSpectrum);
+    // 「叠加对比」与「自验」互斥，且分别受信号类型约束：
+    // 统一在此刷新二者（及自验按钮）的初始可用态。
+    updateSelfTestOverlayLock();
 
     // ---- 用户交互 -> 本类槽函数 ----
     // 点击「导入文件夹」按钮。
@@ -193,6 +192,29 @@ SignalType MainWindow::currentSignalType() const
 QString MainWindow::currentWindowName() const
 {
     return ui.comboWindow->currentData().toString();
+}
+
+/**
+ * @brief 统一刷新「叠加对比 / 自验」的可用态（二者互斥，只能其一激活）。
+ *
+ * 互斥规则：
+ *  - 叠加勾选框（chkOverlay）：仅「频谱类」可用；自验对话框打开时禁用，
+ *    避免自验曲线与叠加曲线同时在主图上叠加绘制；
+ *  - 自验按钮（btnSelfTest）：仅「幅值谱」可用；叠加模式激活或自验对话框
+ *    已打开时禁用，防止重复打开与绘制冲突。
+ */
+void MainWindow::updateSelfTestOverlayLock()
+{
+    const bool selfTestOpen = (m_selfTestDialog != nullptr) && m_selfTestDialog->isVisible();
+    const bool overlayChecked = ui.chkOverlay->isChecked();
+    const bool spectral = (currentSignalType() != SignalType::TimeDomain);
+
+    // 叠加勾选框：频谱可用，且自验对话框打开时禁用（互斥）。
+    ui.chkOverlay->setEnabled(spectral && !selfTestOpen);
+
+    // 自验按钮：幅值谱可用，且叠加模式激活或自验对话框打开时禁用（互斥 + 防重复）。
+    ui.btnSelfTest->setEnabled(currentSignalType() == SignalType::AmplitudeSpectrum
+                               && !overlayChecked && !selfTestOpen);
 }
 
 /**
@@ -406,15 +428,14 @@ void MainWindow::onSignalChanged(int index)
 
     // 时域不支持叠加对比：禁用勾选框；若正勾选则强制取消（会触发清空叠加曲线）。
     const bool spectral = (currentSignalType() != SignalType::TimeDomain);
-    ui.chkOverlay->setEnabled(spectral);
     if (!spectral && ui.chkOverlay->isChecked())
         ui.chkOverlay->setChecked(false);
 
     // 「显示点数」只对时域生效：频谱下禁用（其值保留，切回时域后重新生效）。
     ui.spinPointLimit->setEnabled(!spectral);
 
-    // 自验功能仅「幅值谱」可用：切换类型时同步按钮可用态。
-    ui.btnSelfTest->setEnabled(currentSignalType() == SignalType::AmplitudeSpectrum);
+    // 「叠加对比 / 自验」互斥：统一刷新二者可用态。
+    updateSelfTestOverlayLock();
 
     if (!m_currentPath.isEmpty())
         requestCompute();
@@ -562,6 +583,9 @@ void MainWindow::onClearCurves()
 // 叠加勾选状态变化：取消勾选时清除叠加曲线，只保留最近一条结果。
 void MainWindow::onOverlayToggled(bool checked)
 {
+    // 叠加与自验互斥：勾选状态一变，立即刷新自验按钮的可用态。
+    updateSelfTestOverlayLock();
+
     if (checked)
         return; // 勾选时无需立即动作；后续切换配置才追加曲线。
 
@@ -583,10 +607,19 @@ void MainWindow::onOpenSelfTest()
         // 取消「叠加到主图」：把已叠加的自验曲线从主图移除（文件结果保持不动）。
         connect(m_selfTestDialog, &SelfTestDialog::overlayCancelled,
                 this, &MainWindow::onSelfTestOverlayCancelled);
+        // 对话框关闭后恢复主 UI 按钮可用态（自验与叠加的互斥锁随之解除）。
+        connect(m_selfTestDialog, &QDialog::finished,
+                this, [this](int) { updateSelfTestOverlayLock(); });
     }
     m_selfTestDialog->show();
     m_selfTestDialog->raise();
     m_selfTestDialog->activateWindow();
+
+    // 自验与叠加对比互斥：若正处于叠加模式，先退出叠加（触发清空叠加曲线），
+    // 再统一刷新二者的禁用状态（叠加勾选框此时应被禁用）。
+    if (ui.chkOverlay->isChecked())
+        ui.chkOverlay->setChecked(false);
+    updateSelfTestOverlayLock();
 }
 
 // 自验请求：内置生成正弦（不读文件），走与文件相同的后台计算与谱峰检测。

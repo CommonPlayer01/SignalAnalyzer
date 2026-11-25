@@ -159,14 +159,14 @@ MainWindow::~MainWindow()
  *  - comboSignal 的选项顺序必须与枚举 SignalType 的取值严格一致
  *    （TimeDomain=0 / AmplitudeSpectrum=1 / PowerSpectrum=2），
  *    因为 currentSignalType() 直接用 currentIndex() 强转枚举；
- *  - comboWindow 的 userData 保存传给算法层的窗函数名 "rect" / "hann"，
+ *  - comboWindow 的 userData 保存传给算法层的窗函数名 "rect" / "hann" / "hamming"，
  *    显示文本可自由本地化，不影响计算。
  */
 void MainWindow::setupCombos()
 {
-    // 窗函数下拉框：矩形窗（等效不加窗）与汉宁窗（任务书 3.(5)）。
-    ui.comboWindow->addItem(tr("矩形窗（等效不加窗）"), QStringLiteral("rect"));
-    ui.comboWindow->addItem(tr("汉宁窗"), QStringLiteral("hann"));
+    // 窗函数下拉框：遍历映射表填充（userData 存算法名，显示文本可自由本地化）。
+    for (const WindowDisplay& e : windowDisplayMap())
+        ui.comboWindow->addItem(e.comboName, e.id);
 
     // 信号类型下拉框（任务书 3.(4)）。
     ui.comboSignal->addItem(tr("时域信号"));
@@ -187,11 +187,33 @@ SignalType MainWindow::currentSignalType() const
 
 /**
  * @brief 取当前选中窗函数的算法标识（userData，而非显示文本）。
- * @return "rect" 或 "hann"；若下拉框为空则返回空字符串。
+ * @return "rect" / "hann" / "hamming"（算法标识）；若下拉框为空则返回空字符串。
  */
 QString MainWindow::currentWindowName() const
 {
     return ui.comboWindow->currentData().toString();
+}
+
+// 窗函数显示映射表：算法名 →（下拉框文本、短名）。
+// 三处共用：setupCombos 填充下拉框、requestCompute 图例、onExportImage 文件名。
+const QVector<MainWindow::WindowDisplay>& MainWindow::windowDisplayMap()
+{
+    static const QVector<WindowDisplay> map = {
+        WindowDisplay{QStringLiteral("rect"),    tr("矩形窗（等效不加窗）"), tr("矩形窗")},
+        WindowDisplay{QStringLiteral("hann"),    tr("汉宁窗"),              tr("汉宁窗")},
+        // WindowDisplay{QStringLiteral("hamming"), tr("汉明窗"),              tr("汉明窗")},
+    };
+    return map;
+}
+
+// 按算法名查短名，用于图例标签与导出文件名；未命中回退「矩形窗」。
+QString MainWindow::windowShortName(const QString& id)
+{
+    for (const WindowDisplay& e : windowDisplayMap()) {
+        if (e.id == id)
+            return e.shortName;
+    }
+    return tr("矩形窗");
 }
 
 /**
@@ -472,8 +494,7 @@ void MainWindow::requestCompute()
     request.windowName = currentWindowName();
 
     // 图例标签：文件名 · 窗函数 · 信号类型。随请求透传，避免异步回调时读到已变化的 UI 状态。
-    const QString winText = (request.windowName == QStringLiteral("hann"))
-                                ? tr("汉宁窗") : tr("矩形窗");
+    const QString winText = windowShortName(request.windowName);
     request.label = tr("%1 · %2 · %3")
                         .arg(QFileInfo(m_currentPath).fileName(),
                              winText,
@@ -656,12 +677,11 @@ void MainWindow::onPointLimitChanged(int n)
 void MainWindow::onExportImage()
 {
     // 默认文件名：基名_信号类型_窗函数，存放目录跟随当前数据源文件夹。
-    // 信号类型复用下拉框当前文本；窗函数沿用与图例一致的 hann→汉宁窗 映射。
+    // 信号类型复用下拉框当前文本；窗函数沿用与图例一致的映射表短名。
     QString defaultPath;
     if (!m_currentPath.isEmpty()) {
         const QFileInfo fi(m_currentPath);
-        const QString winText = (currentWindowName() == QStringLiteral("hann"))
-                                    ? tr("汉宁窗") : tr("矩形窗");
+        const QString winText = windowShortName(currentWindowName());
         const QString baseName = QStringLiteral("%1_%2_%3")
                                      .arg(fi.completeBaseName(),
                                           ui.comboSignal->currentText(),

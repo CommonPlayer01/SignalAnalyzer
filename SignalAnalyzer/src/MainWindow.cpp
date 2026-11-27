@@ -363,15 +363,17 @@ void MainWindow::onImportFolder()
  *    因此这里逐个路径同时追加到两者；
  *  - 只有有效文件才写入 m_keyByPath（路径 -> 内容签名），被跳过的文件下次导入时会被再次尝试；
  *  - 内容已变化（但路径已存在）的文件走「复用条目 + 刷新签名」，不会出现在 validPaths 中；
- *  - 若本次有新增文件，会自动选中第一个新文件（触发 onFileChanged -> requestCompute），
- *    让用户导入后立即看到曲线。
+ *  - 导入完成后不自动选中任何文件（初始默认选择为空），由用户手动选择后再计算。
  */
 void MainWindow::onScanFinished(const ScanResult &result)
 {
-    // 记录本次新增文件在 comboFile 中的起始下标。
-    // 必须在 addItem 之前取 count()，此时 count() 恰好等于下一个可用下标。
-    const int firstNewIndex = ui.comboFile->count();
+    // 导入前是否已有选中文件：决定导入完成后是否把下拉框重置为「无选中」。
+    const bool hadSelection = !m_currentPath.isEmpty();
     int added = 0;
+
+    // 屏蔽信号批量 addItem：空下拉框时 Qt 会自动选中首个 item 并发出
+    // currentIndexChanged，屏蔽后可避免「导入即自动计算首个文件」。
+    ui.comboFile->blockSignals(true);
     for (const QString &path : result.validPaths) {
         const QFileInfo fi(path);
         // 路径表、路径->签名映射、下拉框三者同步追加，保持下标一致。
@@ -380,6 +382,7 @@ void MainWindow::onScanFinished(const ScanResult &result)
         ui.comboFile->addItem(fi.fileName());   // 下拉框只显示文件名，完整路径存在 m_importedPaths
         ++added;
     }
+    ui.comboFile->blockSignals(false);
 
     // 组装状态栏汇总：先给出新增数，再按需追加各类跳过统计。
     QString summary = tr("导入完成：新增 %1 个有效文件").arg(added);
@@ -393,21 +396,15 @@ void MainWindow::onScanFinished(const ScanResult &result)
         summary += tr("，跳过 %1 个无效文件").arg(result.skippedEmpty);
     statusBar()->showMessage(summary);
 
-    // 导入/切换文件夹后，自动选中本次新增的第一个文件并重新加载（触发计算）。
-    // 即使之前已在查看旧文件夹的文件，也会切到新文件夹的首个文件。
-    if (added > 0) {
-        // 提示：QComboBox::setCurrentIndex 仅在下标真正变化时才会发出
-        // currentIndexChanged；若 selected 下标与当前一致，则不会重复计算。
-        ui.comboFile->setCurrentIndex(firstNewIndex);
-    } else if (m_currentPath.isEmpty() && !m_importedPaths.isEmpty()) {
-        // 没有新增文件，但此前也没有任何选中项（例如首次导入全部被判重）：
-        // 兜底选中第 0 项，保证界面至少有一份可查看的数据。
-        ui.comboFile->setCurrentIndex(0);
+    // 导入完成后不自动选中文件：初始默认选择为空。
+    // 若导入前本无选中（切换文件夹 / 首次导入），则把 addItem 自动选中的首个
+    // item 重置回空；setCurrentIndex(-1) 会触发 onFileChanged(-1)，清空路径与绘图区。
+    if (!hadSelection && added > 0) {
+        ui.comboFile->setCurrentIndex(-1);
     }
 
     // 内容被更新且正在查看的若是当前文件，需要重算一次才能看到最新曲线。
-    // （added > 0 时上面的 setCurrentIndex 会切到新文件并触发计算，无需重复请求）
-    if (m_pendingCurrentUpdate && added == 0 && !m_currentPath.isEmpty())
+    if (m_pendingCurrentUpdate && !m_currentPath.isEmpty())
         requestCompute();
     m_pendingCurrentUpdate = false;
 }

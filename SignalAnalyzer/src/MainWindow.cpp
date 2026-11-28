@@ -128,6 +128,10 @@ MainWindow::MainWindow(QWidget *parent)
     // 允许鼠标拖拽平移、滚轮缩放坐标轴范围。
     ui.plot->setInteraction(QCP::iRangeDrag, true);
     ui.plot->setInteraction(QCP::iRangeZoom, true);
+    // 曲线改为逐段绘制：Qt 对单段线段有宽画笔（线宽 > 1）的专用快速路径。
+    // 默认的整条 drawPolyline 会先把宽画笔描边成轮廓多边形再做抗锯齿填充，
+    // 遇到陡峭密集的波形（例如每周期仅 10 个采样点的信号）时每帧要数百毫秒。
+    ui.plot->setPlottingHint(QCP::phFastPolylines, true);
     // 只创建一个 graph（曲线对象），后续 setData 复用同一条曲线。
     ui.plot->addGraph();
     // 设置曲线为蓝色，避免默认黑色在深色背景下不清晰。

@@ -78,7 +78,8 @@ QCPGraph *PlotController::acquireGraph()
 
 void PlotController::setResult(const ComputeResult &result)
 {
-    clear();
+    // 清空时不重绘：紧接着的 appendResult 会整帧重绘，中间那帧空图纯属浪费。
+    resetGraphs();
     appendResult(result);
 }
 
@@ -215,6 +216,15 @@ void PlotController::clear()
     if (m_plot == nullptr)
         return;
 
+    resetGraphs();
+    m_plot->replot();
+}
+
+void PlotController::resetGraphs()
+{
+    if (m_plot == nullptr)
+        return;
+
     for (int i = 0; i < m_plot->graphCount(); ++i) {
         m_plot->graph(i)->data()->clear();
         m_plot->graph(i)->setName(QString());
@@ -223,7 +233,6 @@ void PlotController::clear()
         m_plot->graph(i)->setVisible(false);
     }
     m_curveCount = 0;
-    m_plot->replot();
 }
 
 bool PlotController::exportImage(const QString &filePath)

@@ -39,6 +39,8 @@ public:
 private:
     // 取得下一条可用曲线（按需 addGraph），并按 4 色调色板循环配色。
     QCPGraph *acquireGraph();
+    // 清空全部曲线的数据并移出图例，但不重绘；clear() 与 setResult() 共用。
+    void resetGraphs();
     // 按 m_pointLimit 把 x 轴窗口收缩到前 N 个点，并按可见区间重算 y 轴。
     // 调用前应已执行 rescaleAxes()。
     void applyViewLimit();
